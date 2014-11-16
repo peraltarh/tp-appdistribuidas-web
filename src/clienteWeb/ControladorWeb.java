@@ -11,27 +11,27 @@ import javax.swing.JOptionPane;
 import interfaz.InterfazEnvios;
 
 public class ControladorWeb {
-	InterfazEnvios iE=null;
+	InterfazEnvios controladorRMI;
 	private static ControladorWeb instancia;
-	
+
+	public static void main(String[] args)
+	{
+		new ControladorWeb();
+	}
+
+
 	public static ControladorWeb getInstancia()
 	{
 		if(instancia==null)
 			return instancia=new ControladorWeb();
 		return instancia;
 	}
-	
-	
-//	public static void main(String[] args)
-//	{
-//		new ControladorWeb();
-//	}
 
 	private boolean getStub() 
 	{
 		try {
 
-			iE = (InterfazEnvios)Naming.lookup ("//localhost/Envios");
+			controladorRMI = (InterfazEnvios)Naming.lookup ("//localhost/Envios");
 			System.out.println("Me pude conectar al server");
 			return true;
 		} catch (Exception e) {
@@ -42,37 +42,44 @@ public class ControladorWeb {
 
 	}
 
-	public ControladorWeb(){
-		if(getStub())
+	public void cargaPrueba()
+	{
+
+		try
 		{
-			try
-			{
-				iE.altaParticular("salta 1234", "543523", "Pepe", "Garcia", "32243243");
-				iE.altaParticular("salta 1234", "41233", "Damian", "M", "34554567");
-				iE.altaEmpresa("DirEmpresa","3432423","Razon01","cuit01","Regular");
-				iE.altaEmpresa("DirEmpresa2","999999","Razon02","cuit02","Regular");
-				iE.altaProducto("TipoComun", "1kg de cocaina", "cuit01");
-				iE.altaProducto("TipoComun", "caja de absenta", "cuit01");
-				iE.agregarEmpresaDireccionValida("DireccionValida 01","54654645","cuit01");
-				iE.altaSucursal("sucursal1","Direccion1","Gerente1","EncDespacho1","EncRecep1");
-				iE.altaSucursal("sucursal2","Direccion2","Gerente2","EncDespacho2","EncRecep2");
+
+			controladorRMI.altaParticular("salta 1234", "543523", "Pepe", "Garcia", "32243243");
+			controladorRMI.altaParticular("salta 1234", "41233", "Damian", "M", "34554567");
+			controladorRMI.altaEmpresa("DirEmpresa","3432423","Razon01","cuit01","Regular");
+			controladorRMI.altaEmpresa("DirEmpresa2","999999","Razon02","cuit02","Regular");
+			controladorRMI.altaProducto("TipoComun", "1kg de cocaina", "cuit01");
+			controladorRMI.altaProducto("TipoComun", "caja de absenta", "cuit01");
+			controladorRMI.agregarEmpresaDireccionValida("DireccionValida 01","54654645","cuit01");
+			controladorRMI.altaSucursal("sucursal1","Direccion1","Gerente1","EncDespacho1","EncRecep1");
+			controladorRMI.altaSucursal("sucursal2","Direccion2","Gerente2","EncDespacho2","EncRecep2");
 
 
-				iE.altaDeposito(500, "EncDeposito1", "sucursal1");
-				iE.altaDeposito(1000, "EncDeposito2", "sucursal1");
-				iE.altaDeposito(1500, "EncDeposito3", "sucursal1");
-				iE.altaDeposito(500, "EncDeposito4", "sucursal1");
+			controladorRMI.altaDeposito(500, "EncDeposito1", "sucursal1");
+			controladorRMI.altaDeposito(1000, "EncDeposito2", "sucursal1");
+			controladorRMI.altaDeposito(1500, "EncDeposito3", "sucursal1");
+			controladorRMI.altaDeposito(500, "EncDeposito4", "sucursal1");
 
 
-				iE.altaCuentaCorriente(999999, 0, 5000, "cuit01");			
-				iE.altaMovimientoCuenta(null, 500, 999999);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			controladorRMI.altaCuentaCorriente(999999, 0, 5000, "cuit01");			
+			controladorRMI.altaMovimientoCuenta(null, 500, 999999);
+		}
+		catch(RemoteException e){
+			e.printStackTrace();
 		}
 	}
+
+	public ControladorWeb()
+	{
+		instancia=this;
+		this.getStub();
+	}
 }
+
 
 
 
