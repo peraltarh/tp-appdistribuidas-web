@@ -82,7 +82,7 @@ public class ControladorWeb {
 
 	public List<PedidoBean> getPedidosPorEstado(String estado){
 		try {
-			return controladorRMI.getMesasPorEstado(estado);			
+			return controladorRMI.getPedidosPorEstado(estado);			
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;
