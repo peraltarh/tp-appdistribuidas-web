@@ -18,11 +18,10 @@
 </head>
 <body>
 <body onload="prueba();">
-    <form name="frmCargaPrueba" id="formulario" method="GET" action="Prueba">
-    <button onclick="<%ControladorWeb.getInstancia();%>">
+    <button onclick="<%ControladorWeb.getInstancia().cargaPrueba();%>">
     <font size="4">Cargar</font>
 </button>
-</form>
+
 
 
 </body>
