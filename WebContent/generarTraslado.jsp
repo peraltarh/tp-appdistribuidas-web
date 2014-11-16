@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	function validarForm(){
 		if(document.getElementById("comboPedidos").value == ""){
-			alert('Debe ingresar una Mesa.');
+			alert('Debe ingresar una Pedido.');
 			return false;
 		}
 		document.getElementById("formulario").submit();
