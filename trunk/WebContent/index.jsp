@@ -22,6 +22,7 @@
                 
                 <li><a href="generarEnvio.jsp">Generar Envio</a></li>
                  
+                <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
             </ul>
         </div>              
     </div>    
