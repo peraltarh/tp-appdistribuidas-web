@@ -20,11 +20,35 @@
 	</div>
 
 	<div>
+		<form name="frmGenerarTraslado" id="formulario" method="GET"
+			action="GenerarTraslado">
+			<blockquote>
+				<p>
+					Pedido: <select name="cbPedidos" id="comboPedidos" size="1">
+						<%
+							for (PedidoBean p : ControladorWeb.getInstancia()
+									.getPedidosPorEstado("proceso")) {
+						%>
+						<option value="<%=p.getIdPedido()%>">
+							<%=p.getIdPedido()%>
+						</option>
+						<%
+							}
+						%>
+					</select> <input name="btnSelPedido" type="button" value="Pedido"
+						onClick="validarForm();">
+				</p>
+			</blockquote>
+		</form>
+	</div>
+
+	<div>
 		<table border="1">
 			<tr>
-				<th>Nro Item</th>
-				<th>Repuesto</th>
-				<th>Cantidad</th>
+				<th>Numero</th>
+				<th>Id Mercaderia</th>
+				<th>Deposito Actual</th>
+				<th>Fecha Maxima Entrega</th>
 			</tr>
 			<%
 				for (int i = 0; i < pb.getMercaderias().size(); i++) {
@@ -32,8 +56,8 @@
 			<tr>
 				<th><%=i + 1%></th>
 				<th><%=pb.getMercaderias().get(i).getIdMercaderia()%></th>
-				<th></th>
-				<buton name="entregar" action="entrevar()"></buton>
+				<th><%=pb.getMercaderias().get(i).getDeposito()%></th>
+				<th><%=pb.getFechaEnregaMaxima()%></th>
 			</tr>
 			<%
 				}
@@ -42,19 +66,7 @@
 		</table>
 
 	</div>
-
-	<!-- 	<form name="frmGenerarTraslado" id="formulario" method="GET" -->
-	<!-- 		action="GenerarTraslado"> -->
-	<!-- 		<blockquote> -->
-	<!-- 			<p> -->
-	<!-- 				Pedido: <select name="cbPedidos" id="comboPedidos" size="1"> -->
-	<%-- 					<option value="<%=pb.getIdPedido() %>"></option> --%>
-	<!-- 				</select> <input name="btnSelPedido" type="button" value="Pedido"	onClick="validarForm();"> -->
-	<!-- 			</p> -->
-	<!-- 		</blockquote> -->
-	<!-- 	</form> -->
-	</br>
-	<a href='index.jsp'>Volver</a>
+	<a href='generarTraslado.jsp'>Volver</a>
 
 </body>
 </html>

@@ -92,8 +92,11 @@ public class ControladorWeb {
 	public PedidoBean getPedido(int numeroPedido)
 	{
 		PedidoBean pB= new PedidoBean();
-		pB.setIdPedido(3);
-//		"manifiesto3", "dirDestino3", null,	null, "condEspeciales3",null, null,	"dirDeRetiroSoloEmpresa3", 3,"proceso", "sucursal2","cuit01", "cuit");
+		try {
+			pB=controladorRMI.getPedido(numeroPedido);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		return pB;
 	}
 
