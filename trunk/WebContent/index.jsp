@@ -23,6 +23,7 @@
                 <li><a href="generarEnvio.jsp">Generar Envio</a></li>
                  
                 <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
+                <li><a href="mostrarEstadoPedidos.jsp">Mostrar Estado Pedidos</a></li>
             </ul>
         </div>              
     </div>    

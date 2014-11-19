@@ -19,4 +19,16 @@
     <servlet-name>GenerarTraslado</servlet-name>
     <url-pattern>/GenerarTraslado</url-pattern>
   </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>mostrarEstadoPedidos</display-name>
+    <servlet-name>mostrarEstadoPedidos</servlet-name>
+    <servlet-class>servlet.MostrarEstadoPedidos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mostrarEstadoPedidos</servlet-name>
+    <url-pattern>/mostrarEstadoPedidos</url-pattern>
+  </servlet-mapping>
 </web-app>
