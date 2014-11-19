@@ -1,5 +1,6 @@
 <%@ page import="clienteWeb.ControladorWeb"%>
 <%@page import="beans.PedidoBean"%>
+<%@page import="beans.MercaderiaBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,19 +25,17 @@
 			action="GenerarTraslado">
 			<blockquote>
 				<p>
-					Pedido: <select name="cbPedidos" id="comboPedidos" size="1">
+					Mercaderia: <select name="cbMercaderia" id="comboMercaderias" size="1">
 						<%
-							for (PedidoBean p : ControladorWeb.getInstancia()
-									.getPedidosPorEstado("proceso")) {
+							for (MercaderiaBean m : pb.getMercaderias()) {
 						%>
-						<option value="<%=p.getIdPedido()%>">
-							<%=p.getIdPedido()%>
+						<option value="<%=m.getIdMercaderia()%>">
+							<%=m.getIdMercaderia()%>
 						</option>
 						<%
 							}
 						%>
-					</select> <input name="btnSelPedido" type="button" value="Pedido"
-						onClick="validarForm();">
+					</select> <input name="btnSelMercaderia" type="button" value="Mercaderia">
 				</p>
 			</blockquote>
 		</form>
@@ -56,8 +55,8 @@
 			<tr>
 				<th><%=i + 1%></th>
 				<th><%=pb.getMercaderias().get(i).getIdMercaderia()%></th>
-				<th><%=pb.getMercaderias().get(i).getDeposito()%></th>
-				<th><%=pb.getFechaEnregaMaxima()%></th>
+				<th><%=pb.getMercaderias().get(i).getDeposito().getIdDeposito()%></th>
+				<th><%=pb.getDirDestino()%></th>
 			</tr>
 			<%
 				}
