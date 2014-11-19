@@ -99,5 +99,12 @@ public class ControladorWeb {
 		}
 		return pB;
 	}
-
+	public List<PedidoBean> getPedidos(){
+		try {
+			return controladorRMI.getPedidos();			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
