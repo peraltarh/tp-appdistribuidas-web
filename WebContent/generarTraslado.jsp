@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Generar Pedido</title>
+<title>Generar Traslado - Pedido</title>
 
 <script type="text/javascript">
 	function validarForm(){
@@ -34,7 +34,7 @@
 						<%=p.getIdPedido() %>
 					</option>
 					<% } %>
-				</select> <input name="btnSelPedido" type="button" value="Pedido"	onClick="validarForm();">
+				</select> <input name="btnSelPedido" type="button" value="Seleccionar pedido"	onClick="validarForm();">
 			</p>
 		</blockquote>
 	</form>
