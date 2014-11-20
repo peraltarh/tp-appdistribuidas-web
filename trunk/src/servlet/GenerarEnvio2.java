@@ -13,10 +13,10 @@ import beans.ClienteBean;
 import beans.PedidoBean;
 import clienteWeb.ControladorWeb;
 
-public class GenerarEnvio extends HttpServlet{
+public class GenerarEnvio2 extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
-	public GenerarEnvio() {
+	public GenerarEnvio2() {
 		super();
 	}
 
@@ -28,7 +28,7 @@ public class GenerarEnvio extends HttpServlet{
 			ClienteBean cB=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(numero));
 			if(cB!=null)
 			{
-				request.setAttribute("clienteValidado", cB);
+				request.setAttribute("nuevoPedido", cB);
 				RequestDispatcher dispacher = request.getRequestDispatcher("generarEnvio2.jsp");
 				dispacher.forward(request, response);
 			}
