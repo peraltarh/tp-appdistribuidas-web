@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import beans.MercaderiaBean;
 import beans.PedidoBean;
 import interfaz.InterfazEnvios;
 
@@ -106,5 +107,16 @@ public class ControladorWeb {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+
+	public MercaderiaBean getMercaderia(int idMercaderia) {
+		MercaderiaBean mB=null;
+		try {
+			mB=controladorRMI.getMercaderia(idMercaderia);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return mB;
 	}
 }

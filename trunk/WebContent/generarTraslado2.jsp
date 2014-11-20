@@ -7,11 +7,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Generar Pedid 22222</title>
+<title>Generar Traslado - Mercaderia</title>
 
 <%
 	PedidoBean pb = (PedidoBean) request.getAttribute("nuevoPedido");
 %>
+
+<script type="text/javascript">
+	function validarForm(){
+		if(document.getElementById("comboMercaderias").value == ""){
+			alert('Debe seleccionar una Mercaderia.');
+			return false;
+		}
+		document.getElementById("formulario").submit();
+	}
+</script>
 
 </head>
 <body>
@@ -35,7 +45,7 @@
 						<%
 							}
 						%>
-					</select> <input name="btnSelMercaderia" type="button" value="Mercaderia">
+					</select> <input name="btnSelMercaderia" type="button" value="Seleccionar Mercaderia onClick="validarForm();" >
 				</p>
 			</blockquote>
 		</form>

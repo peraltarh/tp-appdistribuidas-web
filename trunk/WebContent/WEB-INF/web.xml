@@ -31,4 +31,15 @@
     <servlet-name>mostrarEstadoPedidos</servlet-name>
     <url-pattern>/mostrarEstadoPedidos</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>GenerarTraslado2</display-name>
+    <servlet-name>GenerarTraslado2</servlet-name>
+    <servlet-class>servlet.GenerarTraslado2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GenerarTraslado2</servlet-name>
+    <url-pattern>/GenerarTraslado2</url-pattern>
+  </servlet-mapping>
 </web-app>

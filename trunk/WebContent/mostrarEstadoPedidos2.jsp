@@ -56,7 +56,7 @@
 			<tr>
 				<th><%=i + 1%></th>
 				<th><%=pb.getMercaderias().get(i).getIdMercaderia()%></th>
-				<th><%=pb.getMercaderias().get(i).()%></th>
+<%-- 				<th><%=pb.getMercaderias().get(i).getMovimientos().get(pb.getMercaderias().get(i).getMovimientos().size()-1).getDestino()%></th> --%>
 				<th><%=pb.getMercaderias().get(i).getDeposito().getIdDeposito()%></th>
 				<th><%=pb.getDirDestino()%></th>
 			</tr>
