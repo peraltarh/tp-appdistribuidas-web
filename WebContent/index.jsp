@@ -17,12 +17,9 @@
 			<h1>TP Aplicaciones Distribuidas - TP de Envios</h1>
 		</div>
         <div id="navbar">
-            <ul>
-            	<li><a href="cargaPrueba.jsp">Prueba Carga</a></li>
-                
+            <ul>               
                 <li><a href="GenerarEnvio.jsp">Generar Envio</a></li>
-                 
-                <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
+                 <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
                 <li><a href="mostrarEstadoPedidos.jsp">Mostrar Estado Pedidos</a></li>
             </ul>
         </div>              
