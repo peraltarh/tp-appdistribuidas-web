@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import beans.ClienteBean;
 import beans.MercaderiaBean;
 import beans.PedidoBean;
 import interfaz.InterfazEnvios;
@@ -118,5 +119,11 @@ public class ControladorWeb {
 			e.printStackTrace();
 		}
 		return mB;
+	}
+
+
+	public ClienteBean getCliente(String tipoId, int parseInt) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
