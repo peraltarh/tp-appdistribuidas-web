@@ -20,7 +20,7 @@
             <ul>
             	<li><a href="cargaPrueba.jsp">Prueba Carga</a></li>
                 
-                <li><a href="generarEnvio.jsp">Generar Envio</a></li>
+                <li><a href="GenerarEnvio.jsp">Generar Envio</a></li>
                  
                 <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
                 <li><a href="mostrarEstadoPedidos.jsp">Mostrar Estado Pedidos</a></li>
