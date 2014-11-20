@@ -16,7 +16,7 @@ import interfaz.InterfazEnvios;
 public class ControladorWeb {
 	InterfazEnvios controladorRMI;
 	private static ControladorWeb instancia;
-
+	
 	public static void main(String[] args)
 	{
 		new ControladorWeb();

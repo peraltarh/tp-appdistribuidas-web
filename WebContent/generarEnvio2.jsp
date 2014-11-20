@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Validar Cliente</title>
+<title>Alta Pedido</title>
 </head>
 
 <script type="text/javascript">
@@ -18,24 +18,49 @@
 
 <body>
 
-	<form name="GenerarEnvio" action="GenerarEnvio" id="formulario"
+	<form name="generarEnvio2" action="generarEnvio2" id="formulario"
 		method="GET">
 		<table width="75%">
 			<!-- 		style="display: none" -->
 			<tr>
-				<td width="20%">Tipo Identificacion</td>
-				<td width="20%"><select size="1" name="tipo" id="tipo">
-						<option value="0">Elegir Tipo...</option>
-						<option value="DNI">DNI</option>
-						<option value="CUIT">CUIT</option>
-				</select></td>
-				<td width="20%">Numero</td>
-				<td width="40%"><input type="text" name="numero" id="numero" /></td>
+
+				<td width="20%">Fecha Entrega Maxima</td>
+				<td width="40%"><input type="text" name="fechaMax"
+					id="fechaMax" /></td>
+
+				<td width="20%">Direccion Destino</td>
+				<td width="40%"><input type="text" name="dirDestino"
+					id="dirDestino" /></td>
+
+				<td width="20%">Fecha Entrega Maxima</td>
+				<td width="40%"><input type="text" name="fechaMax"
+					id="fechaMax" /></td>
+
+				<td width="20%">Horario Entrega Desde</td>
+				<td width="40%"><input type="text" name="horarioDeEntregaDesde"
+					id="horarioDeEntregaDesde" /></td>
+
+				<td width="20%">Horario Entrega Hasta</td>
+				<td width="40%"><input type="text" name="horarioDeEntregaHasta"
+					id="horarioDeEntregaHasta" /></td>
+
+				<td width="20%">Condiciones Especiales</td>
+				<td width="40%"><input type="text" name="condEspeciales"
+					id="condEspeciales" /></td>
+
+				<td width="20%">Manifiesto</td>
+				<td width="40%"><input type="text" name="manifiesto"
+					id="manifiesto" /></td>
+
+				<td width="20%">Direccion de Retiro (Solo Empresa)</td>
+				<td width="40%"><input type="text"
+					name="dirDeRetiroSoloEmpresa" id="dirDeRetiroSoloEmpresa" /></td>
+
 			</tr>
 		</table>
 		<input type="button" name="validarUsuario" value="Validar Usuario"
-			onclick="validarUser2();"> <input type="reset"
-			name="LimpiarCampos" value="Limpiar Campos" />
+			onclick=""> <input type="reset" name="LimpiarCampos"
+			value="Limpiar Campos" />
 	</form>
 
 	<a href='index.jsp'>Volver</a>
