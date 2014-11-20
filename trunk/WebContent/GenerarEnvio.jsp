@@ -34,7 +34,7 @@
 			</tr>
 		</table>
 		<input type="button" name="validarUsuario" value="Validar Usuario"
-			onclick="validarUser2();"> <input type="reset"
+			onclick="validarUser();"> <input type="reset"
 			name="LimpiarCampos" value="Limpiar Campos" />
 	</form>
 
