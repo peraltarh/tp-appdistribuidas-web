@@ -25,26 +25,21 @@ public class GenerarEnvio extends HttpServlet{
 		String numero=request.getParameter("numero");
 		if(!numero.equals("")&&!tipoId.equals("0"))
 		{
-			System.out.println("Entro");
-			System.out.println(tipoId+numero);
 			ClienteBean cB=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(numero));
-			request.setAttribute("nuevoPedido", cB);
-//			RequestDispatcher dispacher = request.getRequestDispatcher("generarTraslado2.jsp");
-//			dispacher.forward(request, response);
+			if(cB!=null)
+			{
+				request.setAttribute("nuevoPedido", cB);
+				RequestDispatcher dispacher = request.getRequestDispatcher("generarEnvio2.jsp");
+				dispacher.forward(request, response);
+			}
 		}
-		System.out.println("Salio");
 
-		
-				
-		
-
-		
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		}
-
 	}
+
+}
 

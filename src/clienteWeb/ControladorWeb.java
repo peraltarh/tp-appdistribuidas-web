@@ -122,8 +122,9 @@ public class ControladorWeb {
 	}
 
 
-	public ClienteBean getCliente(String tipoId, int parseInt) {
-		// TODO Auto-generated method stub
+	public ClienteBean getCliente(String tipoId, int numero) {
+		ClienteBean cB=null;
+		cB=getCliente(tipoId, numero);
 		return null;
 	}
 }
