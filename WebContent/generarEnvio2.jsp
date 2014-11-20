@@ -16,7 +16,7 @@
 %>
 
 <script type="text/javascript">
-	function validarUser() {
+	function validarPedido() {
 		document.getElementById("formulario").submit();
 	}
 </script>
@@ -65,7 +65,7 @@
 
 			</tr>
 		</table>
-		<input type="button" name="validarUsuario" value="Validar Usuario"
+		<input type="button" name="crearPedido" value="Crear Pedido"
 			onclick=""> <input type="reset" name="LimpiarCampos"
 			value="Limpiar Campos" />
 	</form>
