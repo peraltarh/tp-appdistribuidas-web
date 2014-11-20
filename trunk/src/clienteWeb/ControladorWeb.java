@@ -124,7 +124,12 @@ public class ControladorWeb {
 
 	public ClienteBean getCliente(String tipoId, int numero) {
 		ClienteBean cB=null;
-		cB=getCliente(tipoId, numero);
-		return null;
+		try {
+			cB=controladorRMI.getCliente(tipoId, String.valueOf(numero));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cB;
 	}
 }
