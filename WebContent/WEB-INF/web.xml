@@ -54,4 +54,15 @@
     <url-pattern>/GenerarEnvio</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+    <description></description>
+    <display-name>generarEnvio2</display-name>
+    <servlet-name>generarEnvio2</servlet-name>
+    <servlet-class>servlet.GenerarEnvio2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>generarEnvio2</servlet-name>
+    <url-pattern>/generarEnvio2</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

@@ -132,4 +132,10 @@ public class ControladorWeb {
 		}
 		return cB;
 	}
+
+
+	public int altaPedidoBean(PedidoBean pb) {
+//		int id=controladorRMI.altaPedidoBean(pb);
+		return 0;
+	}
 }

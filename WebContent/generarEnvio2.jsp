@@ -12,11 +12,13 @@
 
 <%
 	ClienteBean cb = (ClienteBean) request.getAttribute("clienteValidado");
-	PedidoBean pb= new PedidoBean();
+	PedidoBean pb = new PedidoBean();
+	pb.setCliente(cb);
 %>
 
 <script type="text/javascript">
 	function validarPedido() {
+		request.setAttribute("pedido", pb);
 		document.getElementById("formulario").submit();
 	}
 </script>
@@ -31,46 +33,52 @@
 			<!-- 		style="display: none" -->
 			<tr>
 
-				<td width="20%">Fecha Entrega Maxima</td>
+				<td width="20%">Fecha Entrega Maxima (mm/dd/aaaa))</td>
 				<td width="40%"><input type="text" name="fechaMax"
 					id="fechaMax" /></td>
-
+			</tr>
+			<tr>
 				<td width="20%">Direccion Destino</td>
 				<td width="40%"><input type="text" name="dirDestino"
 					id="dirDestino" /></td>
-
-				<td width="20%">Fecha Entrega Maxima</td>
-				<td width="40%"><input type="text" name="fechaMax"
-					id="fechaMax" /></td>
-
-				<td width="20%">Horario Entrega Desde</td>
+			</tr>
+			<tr>
+				<td width="20%">Horario Entrega Desde (HH:mm)</td>
 				<td width="40%"><input type="text" name="horarioDeEntregaDesde"
 					id="horarioDeEntregaDesde" /></td>
-
-				<td width="20%">Horario Entrega Hasta</td>
+			</tr>
+			<tr>
+				<td width="20%">Horario Entrega Hasta (HH:mm)</td>
 				<td width="40%"><input type="text" name="horarioDeEntregaHasta"
 					id="horarioDeEntregaHasta" /></td>
-
+			</tr>
+			<tr>
 				<td width="20%">Condiciones Especiales</td>
 				<td width="40%"><input type="text" name="condEspeciales"
 					id="condEspeciales" /></td>
-
+			</tr>
+			<tr>
 				<td width="20%">Manifiesto</td>
 				<td width="40%"><input type="text" name="manifiesto"
 					id="manifiesto" /></td>
-
+			</tr>
+			<tr>
 				<td width="20%">Direccion de Retiro (Solo Empresa)</td>
 				<td width="40%"><input type="text"
 					name="dirDeRetiroSoloEmpresa" id="dirDeRetiroSoloEmpresa" /></td>
 
 			</tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
 		</table>
 		<input type="button" name="crearPedido" value="Crear Pedido"
-			onclick=""> <input type="reset" name="LimpiarCampos"
+			onclick="validarPedido()"> <input type="reset" name="LimpiarCampos"
 			value="Limpiar Campos" />
 	</form>
 
-	<a href='index.jsp'>Volver</a>
+
+	<a href='GenerarEnvio.jsp'>Volver</a>
 
 </body>
 </html>
