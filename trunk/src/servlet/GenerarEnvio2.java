@@ -2,6 +2,9 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,17 +24,34 @@ public class GenerarEnvio2 extends HttpServlet{
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tipoId=request.getParameterValues("tipo")[0];
-		String numero=request.getParameter("numero");
-		if(!numero.equals("")&&!tipoId.equals("0"))
+		String fechaMax=request.getParameter("fechaMax");
+		String dirDestino=request.getParameter("dirDestino");
+		String horarioDeEntregaDesde=request.getParameter("horarioDeEntregaDesde");
+		String horarioDeEntregaHasta=request.getParameter("horarioDeEntregaHasta");
+		String condEspeciales=request.getParameter("condEspeciales");
+		String manifiesto=request.getParameter("manifiesto");
+		String dirDeRetiroSoloEmpresa=request.getParameter("dirDeRetiroSoloEmpresa");
+
+
+		if(!fechaMax.equals("")&&!dirDestino.equals("")&&!horarioDeEntregaDesde.equals("")&&!horarioDeEntregaHasta.equals("")&&
+				!condEspeciales.equals(""))
 		{
-			ClienteBean cB=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(numero));
-			if(cB!=null)
-			{
-				request.setAttribute("nuevoPedido", cB);
-				RequestDispatcher dispacher = request.getRequestDispatcher("generarEnvio2.jsp");
-				dispacher.forward(request, response);
-			}
+//			SimpleDateFormat simpleDateFormat_FECHA = new SimpleDateFormat("MM/dd/yyyy");
+//			SimpleDateFormat simpleDateFormat_HORA = new SimpleDateFormat("HH:mm");
+			PedidoBean pb=(PedidoBean)request.getAttribute("pedido");
+			pb.setDirDestino(dirDestino);
+			pb.setFechaEnregaMaxima(java.sql.Date.valueOf(fechaMax));	
+			pb.setHorarioDeEntregaDesde(java.sql.Date.valueOf(horarioDeEntregaDesde));
+			pb.setHorarioDeEntregahasta(java.sql.Date.valueOf(horarioDeEntregaHasta));
+			pb.setCondEspeciales(condEspeciales);
+			pb.setManifiesto(manifiesto);
+			pb.setDirDeRetiroSoloEmpresa(dirDeRetiroSoloEmpresa);
+			request.setAttribute("nuevoPedido", pb);
+			int id=ControladorWeb.getInstancia().altaPedidoBean(pb);
+			pb.setIdPedido(id);
+			RequestDispatcher dispacher = request.getRequestDispatcher("agregarMercaderia.jsp");
+			dispacher.forward(request, response);
+
 		}
 
 
