@@ -135,7 +135,19 @@ public class ControladorWeb {
 
 
 	public int altaPedidoBean(PedidoBean pb) {
-//		int id=controladorRMI.altaPedidoBean(pb);
+//		manifiesto,  dirDestino, fechaEnregaMaxima,  fechaEntregaEstimada, condEspeciales,  horarioDeEntregaDesde,
+//		horarioDeEntregahasta,  dirDeRetiroSoloEmpresa, prioridad,estado,  sucursal,  cliente, tipoC
+//		int id=controladorRMI.altaPedidoBean(pb.getManifiesto(),pb.getDirDestino(),pb.getFechaEnregaMaxima(),pb.getFechaEntregaEstimada()
+//				,pb.getCondEspeciales(),pb.getHorarioDeEntregaDesde(),pb.getHorarioDeEntregahasta(),pb.getDirDeRetiroSoloEmpresa()
+//				,pb.getPrioridad(),pb.getEstado(),pb.getSucursal(),pb.getCliente());
+		int id=0;
+		try {
+			id = controladorRMI.altaPedidoBean(pb);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		pb.setIdPedido(id);
 		return 0;
 	}
 }
