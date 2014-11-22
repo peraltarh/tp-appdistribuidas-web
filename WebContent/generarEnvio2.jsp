@@ -1,3 +1,6 @@
+<%@page import="beans.EmpresaBean"%>
+<%@page import="beans.ParticularBean"%>
+<%@page import="javax.print.attribute.IntegerSyntax"%>
 <%@ page import="clienteWeb.ControladorWeb"%>
 <%@ page import="beans.ClienteBean"%>
 <%@ page import="beans.PedidoBean"%>
@@ -11,14 +14,15 @@
 </head>
 
 <%
-	ClienteBean cb = (ClienteBean) request.getAttribute("clienteValidado");
-	PedidoBean pb = new PedidoBean();
-	pb.setCliente(cb);
+ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
+
+		String tipoId=cb.getTipoCliente();
+	String nro=cb.getIdentificacion();
+
 %>
 
 <script type="text/javascript">
 	function validarPedido() {
-		request.setAttribute("pedido", pb);
 		document.getElementById("formulario").submit();
 	}
 </script>
@@ -28,7 +32,8 @@
 <body>
 
 	<form name="generarEnvio2" action="generarEnvio2" id="formulario"
-		method="GET">
+		method="POST">
+
 		<table width="75%">
 			<!-- 		style="display: none" -->
 			<tr>
@@ -72,9 +77,14 @@
 			<tr></tr>
 			<tr></tr>
 		</table>
-		<input type="button" name="crearPedido" value="Crear Pedido"
-			onclick="validarPedido()"> <input type="reset" name="LimpiarCampos"
-			value="Limpiar Campos" />
+		<input type="hidden" name="tipoId" id="tipoId" value="<%=tipoId%>" /> 
+		
+		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> 
+		<input
+			type="button" name="crearPedido" value="Crear Pedido"
+			onclick="validarPedido()"> <input type="reset"
+			name="LimpiarCampos" value="Limpiar Campos" />
+
 	</form>
 
 

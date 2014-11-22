@@ -67,7 +67,7 @@
 		</table>
 
 	</div>
-	<a href='mostrarEstadoPedidos.jsp.jsp'>Volver</a>
+	<a href='mostrarEstadoPedidos.jsp'>Volver</a>
 
 </body>
 </html>
