@@ -16,6 +16,7 @@ import javax.websocket.Session;
 import beans.ClienteBean;
 import beans.EmpresaBean;
 import beans.PedidoBean;
+import beans.SucursalBean;
 import clienteWeb.ControladorWeb;
 
 public class GenerarEnvio2 extends HttpServlet {
@@ -24,42 +25,45 @@ public class GenerarEnvio2 extends HttpServlet {
 	public GenerarEnvio2() {
 		super();
 	}
-	
-	
 
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		String fechaMax=request.getParameter("fechaMax");
 		String dirDestino=request.getParameter("dirDestino");
-		String horarioDeEntregaDesde=request.getParameter("horarioDeEntregaDesde");
-		String horarioDeEntregaHasta=request.getParameter("horarioDeEntregaHasta");
+		String horarioDeEntregaDesde=request.getParameter("horarioDeEntregaDesde")+":00";
+		String horarioDeEntregaHasta=request.getParameter("horarioDeEntregaHasta")+":00";
 		String condEspeciales=request.getParameter("condEspeciales");
 		String manifiesto=request.getParameter("manifiesto");
 		String dirDeRetiroSoloEmpresa=request.getParameter("dirDeRetiroSoloEmpresa");
 		String tipoId=request.getParameter("tipoId");
 		String nroC=request.getParameter("nro");
 		ClienteBean cb=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(nroC));
-		
-		
-		if(!fechaMax.equals("")&&!dirDestino.equals("")&&!horarioDeEntregaDesde.equals("")&&!horarioDeEntregaHasta.equals("")&&
-				!condEspeciales.equals(""))
+		String sucursal=request.getParameter("sucursal");
+		if(!sucursal.equals(""))
 		{
-//			SimpleDateFormat simpleDateFormat_FECHA = new SimpleDateFormat("MM/dd/yyyy");
-//			SimpleDateFormat simpleDateFormat_HORA = new SimpleDateFormat("HH:mm");
-			PedidoBean pb=new PedidoBean();
-			pb.setCliente(cb);
-			pb.setDirDestino(dirDestino);
-			pb.setFechaEnregaMaxima(java.sql.Date.valueOf(fechaMax));	
-			pb.setHorarioDeEntregaDesde(java.sql.Date.valueOf(horarioDeEntregaDesde));
-			pb.setHorarioDeEntregahasta(java.sql.Date.valueOf(horarioDeEntregaHasta));
-			pb.setCondEspeciales(condEspeciales);
-			pb.setManifiesto(manifiesto);
-			pb.setDirDeRetiroSoloEmpresa(dirDeRetiroSoloEmpresa);
-			request.setAttribute("nuevoPedido", pb);
-			int id=ControladorWeb.getInstancia().altaPedidoBean(pb);
-			pb.setIdPedido(id);
-			RequestDispatcher dispacher = request.getRequestDispatcher("agregarMercaderia.jsp");
-			dispacher.forward(request, response);
-
+			
+			SucursalBean sb=ControladorWeb.getInstancia().getSucursal(sucursal);			
+			if(!fechaMax.equals("")&&!dirDestino.equals("")&&!horarioDeEntregaDesde.equals("")&&!horarioDeEntregaHasta.equals("")&&
+					!condEspeciales.equals(""))
+			{
+				//			horarioDeEntregaDesde=horarioDeEntregaDesde.concat("2014-00-00 "+horarioDeEntregaDesde+":00");
+				//			int min=Integer.parseInt(horarioDeEntregaDesde.substring(3, 5));
+				PedidoBean pb=new PedidoBean();
+				pb.setCliente(cb);
+				pb.setDirDestino(dirDestino);
+				pb.setFechaEnregaMaxima(java.sql.Date.valueOf(fechaMax));
+				pb.setHorarioDeEntregaDesde(java.sql.Time.valueOf(horarioDeEntregaDesde));
+				pb.setHorarioDeEntregahasta(java.sql.Time.valueOf(horarioDeEntregaHasta));
+				pb.setCondEspeciales(condEspeciales);
+				pb.setManifiesto(manifiesto);
+				pb.setDirDeRetiroSoloEmpresa(dirDeRetiroSoloEmpresa);
+				request.setAttribute("nuevoPedido", pb);
+				int id=ControladorWeb.getInstancia().altaPedidoBean(pb);
+				pb.setIdPedido(id);
+				RequestDispatcher dispacher = request.getRequestDispatcher("agregarMercaderia.jsp");
+				dispacher.forward(request, response);
+			}
 		}
 
 

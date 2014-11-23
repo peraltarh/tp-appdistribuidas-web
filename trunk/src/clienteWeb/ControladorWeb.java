@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import beans.ClienteBean;
 import beans.MercaderiaBean;
 import beans.PedidoBean;
+import beans.SucursalBean;
 import interfaz.InterfazEnvios;
 
 public class ControladorWeb {
@@ -149,5 +150,17 @@ public class ControladorWeb {
 		}
 		pb.setIdPedido(id);
 		return 0;
+	}
+
+
+	public SucursalBean getSucursal(String sucursal) {
+		SucursalBean sb=null;
+		try {
+			sb=controladorRMI.getSucursal(sucursal);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return sb;
 	}
 }

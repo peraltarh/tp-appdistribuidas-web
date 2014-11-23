@@ -38,7 +38,7 @@ ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
 			<!-- 		style="display: none" -->
 			<tr>
 
-				<td width="20%">Fecha Entrega Maxima (mm/dd/aaaa))</td>
+				<td width="20%">Fecha Entrega Maxima (AAAA-MM-DD))</td>
 				<td width="40%"><input type="text" name="fechaMax"
 					id="fechaMax" /></td>
 			</tr>
@@ -48,7 +48,12 @@ ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
 					id="dirDestino" /></td>
 			</tr>
 			<tr>
-				<td width="20%">Horario Entrega Desde (HH:mm)</td>
+				<td width="20%">Nombre Sucursal</td>
+				<td width="40%"><input type="text" name="sucursal"
+					id="sucursal" /></td>
+			</tr>
+			<tr>
+				<td width="20%">Horario Entrega Desde (HH:MM)</td>
 				<td width="40%"><input type="text" name="horarioDeEntregaDesde"
 					id="horarioDeEntregaDesde" /></td>
 			</tr>
