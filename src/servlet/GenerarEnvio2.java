@@ -42,7 +42,6 @@ public class GenerarEnvio2 extends HttpServlet {
 		String sucursal=request.getParameter("sucursal");
 		if(!sucursal.equals(""))
 		{
-			
 			SucursalBean sb=ControladorWeb.getInstancia().getSucursal(sucursal);			
 			if(!fechaMax.equals("")&&!dirDestino.equals("")&&!horarioDeEntregaDesde.equals("")&&!horarioDeEntregaHasta.equals("")&&
 					!condEspeciales.equals(""))
@@ -51,6 +50,7 @@ public class GenerarEnvio2 extends HttpServlet {
 				//			int min=Integer.parseInt(horarioDeEntregaDesde.substring(3, 5));
 				PedidoBean pb=new PedidoBean();
 				pb.setCliente(cb);
+				pb.setSucursal(sb);
 				pb.setDirDestino(dirDestino);
 				pb.setFechaEnregaMaxima(java.sql.Date.valueOf(fechaMax));
 				pb.setHorarioDeEntregaDesde(java.sql.Time.valueOf(horarioDeEntregaDesde));

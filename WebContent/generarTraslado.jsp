@@ -29,7 +29,7 @@
 		<blockquote>
 			<p>
 				Pedido: <select name="cbPedidos" id="comboPedidos" size="1">
-					<% for (PedidoBean p : ControladorWeb.getInstancia().getPedidosPorEstado ("proceso")) { %>
+					<% for (PedidoBean p : ControladorWeb.getInstancia().getPedidosPorEstado ("En Proceso")) { %>
 					<option value="<%=p.getIdPedido() %>">
 						<%=p.getIdPedido() %>
 					</option>
