@@ -163,6 +163,16 @@ public class ControladorWeb {
 		}
 		return sb;
 	}
+
+
+	public void actualizarPedido(PedidoBean pb) {
+		try {
+			controladorRMI.actualizarPedido(pb);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 //	public List<SucursalBean> getSucursales()
 //	{

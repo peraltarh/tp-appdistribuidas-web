@@ -65,4 +65,16 @@
     <url-pattern>/generarEnvio2</url-pattern>
   </servlet-mapping>
   
+  
+    <servlet>
+    <description></description>
+    <display-name>agregarMercaderia</display-name>
+    <servlet-name>agregarMercaderia</servlet-name>
+    <servlet-class>servlet.AgregarMercaderia</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>agregarMercaderia</servlet-name>
+    <url-pattern>/agregarMercaderia</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
