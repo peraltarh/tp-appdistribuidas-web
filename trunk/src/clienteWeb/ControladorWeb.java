@@ -163,4 +163,14 @@ public class ControladorWeb {
 		}
 		return sb;
 	}
+	
+//	public List<SucursalBean> getSucursales()
+//	{
+//		try {
+//			return controladorRMI.getSucursales();			
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//			return null;
+//		}		
+//	}
 }

@@ -1,5 +1,6 @@
 <%@page import="beans.EmpresaBean"%>
 <%@page import="beans.ParticularBean"%>
+<%@page import="beans.SucursalBean"%>
 <%@page import="javax.print.attribute.IntegerSyntax"%>
 <%@ page import="clienteWeb.ControladorWeb"%>
 <%@ page import="beans.ClienteBean"%>
@@ -47,11 +48,24 @@ ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
 				<td width="40%"><input type="text" name="dirDestino"
 					id="dirDestino" /></td>
 			</tr>
+			
+<!-- 			<p> -->
+<!-- 				Sucursal: <select name="cbSucursal" id="comboSucursales" size="1"> -->
+<%-- 					<% for (SucursalBean sb : ControladorWeb.getInstancia().getSucursales()) { %> --%>
+<%-- 					<option value="<%=sb.getNombre() %>"> --%>
+<%-- 						<%=sb.getNombre() %> --%>
+<!-- 					</option> -->
+<%-- 					<% } %> --%>
+<!-- 				</select> -->
+<!-- 			</p> -->
+			
 			<tr>
 				<td width="20%">Nombre Sucursal</td>
 				<td width="40%"><input type="text" name="sucursal"
 					id="sucursal" /></td>
 			</tr>
+
+
 			<tr>
 				<td width="20%">Horario Entrega Desde (HH:MM)</td>
 				<td width="40%"><input type="text" name="horarioDeEntregaDesde"
