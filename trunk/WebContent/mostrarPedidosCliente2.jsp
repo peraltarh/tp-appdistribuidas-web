@@ -22,7 +22,7 @@ int idCliente=cb.getIdCliente();
 %>
 
 <script type="text/javascript">
-	function validarPedido() {
+	function validarForm() {
 		document.getElementById("formulario").submit();
 	}
 </script>
@@ -55,7 +55,7 @@ int idCliente=cb.getIdCliente();
 	</form>
 
 
-	<a href='GenerarEnvio.jsp'>Volver</a>
+	<a href='mostrarPedidosCliente.jsp'>Volver</a>
 
 </body>
 </html>
