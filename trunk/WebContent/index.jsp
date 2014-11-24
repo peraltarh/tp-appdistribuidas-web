@@ -10,7 +10,7 @@
 <title>TP Aplicaciones Distribuidas - Envios</title>
 <link rel="stylesheet" type="text/css" href="css/estilos.css" />
 </head>
-<body>
+<body  BACKGROUND="fondo.jpg">
 <div id="container">
 	<div id="clearing">
 		<div id="header">
