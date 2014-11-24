@@ -77,4 +77,17 @@
     <url-pattern>/agregarMercaderia</url-pattern>
   </servlet-mapping>
   
+    
+    <servlet>
+    <description></description>
+    <display-name>mostrarEstadoPedidosCliente</display-name>
+    <servlet-name>mostrarEstadoPedidosCliente</servlet-name>
+    <servlet-class>servlet.MostrarEstadoPedidosCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mostrarEstadoPedidosCliente</servlet-name>
+    <url-pattern>/mostrarEstadoPedidosCliente</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
