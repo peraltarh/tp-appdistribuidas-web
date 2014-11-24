@@ -77,8 +77,8 @@ public class AgregarMercaderia extends HttpServlet {
 			mb.setCoordenadasDestino(direDestino);
 			mb.setPedido(pb);
 			mb.setDeposito(pb.getSucursal().getDepositos().get(0));	
-			
-			
+			mb.setFragilidad(fragilidad);
+			mb.setIndicacionesManpulacion(indicacionesManipulacion);
 			MovimientoBean movB = new MovimientoBean(null,null,pb.getSucursal().getNombre(),pb.getSucursal().getNombre(),"Recibido","Recibido",mb);
 			mb.addMovimiento(movB);
 			pb.addMercaderia(mb);
