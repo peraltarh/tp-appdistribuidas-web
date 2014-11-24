@@ -21,20 +21,12 @@ public class MostrarPedidosCliente2 extends HttpServlet{
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tipoId=request.getParameterValues("tipo")[0];
-		String numero=request.getParameter("numero");
-		if(!numero.equals("")&&!tipoId.equals("0"))
-		{
-			ClienteBean cB=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(numero));
-			if(cB!=null)
-			{
-				request.setAttribute("clienteValidado", cB);
-				RequestDispatcher dispacher = request.getRequestDispatcher("mostrarPedidosCliente2.jsp");
-				dispacher.forward(request, response);
-			}
-		}
-
-
+		
+		String numeroPedido = request.getParameterValues("cbPedidos")[0];
+		PedidoBean pB=ControladorWeb.getInstancia().getPedido(Integer.parseInt(numeroPedido));
+		request.setAttribute("nuevoPedido", pB);
+		RequestDispatcher dispacher = request.getRequestDispatcher("mostrarPedidosCliente3.jsp");
+		dispacher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
