@@ -18,7 +18,7 @@
 
 <body>
 
-	<form name="mostrarEstadoPedidosCliente" action="mostrarEstadoPedidosCliente" id="formulario"
+	<form name="mostrarPedidosCliente" action="mostrarPedidosCliente" id="formulario"
 		method="GET">
 		<table width="75%">
 			<!-- 		style="display: none" -->
