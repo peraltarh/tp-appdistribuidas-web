@@ -14,8 +14,8 @@
 %>
 
 <script type="text/javascript">
-	function validarForm(){
-		if(document.getElementById("comboMercaderias").value == ""){
+	function validarForm() {
+		if (document.getElementById("comboMercaderias").value == "") {
 			alert('Debe seleccionar una Mercaderia.');
 			return false;
 		}
@@ -35,7 +35,8 @@
 			action="GenerarTraslado">
 			<blockquote>
 				<p>
-					Mercaderia: <select name="cbMercaderia" id="comboMercaderias" size="1">
+					Mercaderia: <select name="cbMercaderia" id="comboMercaderias"
+						size="1">
 						<%
 							for (MercaderiaBean m : pb.getMercaderias()) {
 						%>
@@ -45,12 +46,41 @@
 						<%
 							}
 						%>
-					</select> <input name="btnSelMercaderia" type="button" value="Seleccionar Mercaderia onClick="validarForm();" >
+					</select> 
 				</p>
 			</blockquote>
+
+			<blockquote>
+				<p>
+					Sucursal Actual: <select name="cbSucursalActual"
+						id="comboSucursalesActual" size="1">
+						<%
+							for (String suc : ControladorWeb.getInstancia().getSucursales()) {
+						%>
+						<option value="<%=suc%>">
+							<%=suc%>
+						</option>
+						<%
+							}
+						%>
+					</select>
+				</p>
+			</blockquote>
+
+		Condicion Arrivo: <select size="1" name="estado" id="estado">
+				<option value="0">Elegir Estado...</option>
+				<option value="OK">OK</option>
+				<option value="GOLPEADO">GOLPEADO</option>
+				<option value="ABIERTO">ABIERTO</option>
+			</select>
+
+<input name="btnSelMercaderia" type="button"
+						value="Seleccionar Mercaderia" onClick="validarForm();">
 		</form>
 	</div>
-
+	<br>
+	<br>
+	<br>
 	<div>
 		<table border="1">
 			<tr>
@@ -65,7 +95,8 @@
 			<tr>
 				<th><%=i + 1%></th>
 				<th><%=pb.getMercaderias().get(i).getIdMercaderia()%></th>
-				<th><%=pb.getMercaderias().get(i).getDeposito().getIdDeposito()%></th>
+				<th><%=pb.getMercaderias().get(i).getDeposito()
+						.getIdDeposito()%></th>
 				<th><%=pb.getDirDestino()%></th>
 			</tr>
 			<%
@@ -73,8 +104,12 @@
 			%>
 
 		</table>
-
+		<input type="hidden" name="sucFinal" id="sucFinal"
+			value="<%=pb.getDirDestino()%>" /> <input type="hidden"
+			name="estadoAct" id="estadoAct" value="<%=pb.getEstado()%>" />
 	</div>
+	<br>
+	<br>
 	<a href='generarTraslado.jsp'>Volver</a>
 
 </body>

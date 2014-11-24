@@ -30,7 +30,6 @@ public class GenerarEnvio2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		String fechaMax=request.getParameter("fechaMax");
-//		String dirDestino=request.getParameter("dirDestino");
 		String dirDestino=request.getParameterValues("cbSucursalDestino")[0];
 		String horarioDeEntregaDesde=request.getParameter("horarioDeEntregaDesde")+":00";
 		String horarioDeEntregaHasta=request.getParameter("horarioDeEntregaHasta")+":00";
@@ -40,7 +39,6 @@ public class GenerarEnvio2 extends HttpServlet {
 		String tipoId=request.getParameter("tipoId");
 		String nroC=request.getParameter("nro");
 		ClienteBean cb=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(nroC));
-//		String sucursal=request.getParameter("sucursal");
 		String sucursal=request.getParameterValues("cbSucursalOrigen")[0];
 		if(!sucursal.equals(""))
 		{

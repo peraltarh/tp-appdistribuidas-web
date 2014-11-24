@@ -46,21 +46,6 @@
 					id="fechaMax" /></td>
 			</tr>
 
-
-
-
-<!-- 			<tr> -->
-<!-- 				<td width="20%">Sucursal Origen</td> -->
-<!-- 				<td width="40%"><input type="text" name="sucursal" -->
-<!-- 					id="sucursal" /></td> -->
-<!-- 			</tr> -->
-
-<!-- 			<tr> -->
-<!-- 				<td width="20%">Sucursal Destino</td> -->
-<!-- 				<td width="40%"><input type="text" name="dirDestino" -->
-<!-- 					id="dirDestino" /></td> -->
-<!-- 			</tr> -->
-
 			<tr>
 				<td width="20%">Horario Entrega Desde (HH:MM)</td>
 				<td width="40%"><input type="text" name="horarioDeEntregaDesde"
@@ -82,17 +67,7 @@
 					id="manifiesto" /></td>
 			</tr>
 
-			<!-- 			<tr> -->
-			<!-- 				<td width="20%">Direccion de Retiro (Solo Empresa)</td> -->
-			<!-- 				<td width="40%"><input type="text" -->
-			<!-- 					name="dirDeRetiroSoloEmpresa" id="dirDeRetiroSoloEmpresa" /></td> -->
 
-			<!-- 			</tr> -->
-
-			<tr>
-
-
-			</tr>
 
 
 			<tr></tr>
