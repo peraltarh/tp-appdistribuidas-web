@@ -13,7 +13,7 @@
 
 <%
 	PedidoBean pb = (PedidoBean) request.getAttribute("nuevoPedido");
-String nro=Integer.toString(pb.getIdPedido());
+	String nro = Integer.toString(pb.getIdPedido());
 %>
 
 <script type="text/javascript">
@@ -31,7 +31,7 @@ String nro=Integer.toString(pb.getIdPedido());
 			<%=pb.getIdPedido()%></h2>
 	</div>
 	<form name="agregarMercaderia" action="agregarMercaderia"
-		id="formulario" method="POST">
+		id="formulario" method="GET">
 
 		<table width="75%">
 			<tr>
@@ -41,49 +41,49 @@ String nro=Integer.toString(pb.getIdPedido());
 						<option value="porPeso">Peso</option>
 						<option value="porVolumen">Volumen</option>
 				</select></td>
-</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Alto</td>
-				<td width="40%"><input type="text" name="alta" id="alto" /></td>
-<tr>
-<tr>
+				<td width="40%"><input type="text" name="alto" id="alto" /></td>
+			<tr>
+			<tr>
 				<td width="20%">Ancho</td>
 				<td width="40%"><input type="text" name="ancho" id="ancho" /></td>
-</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Profundidad</td>
 				<td width="40%"><input type="text" name="profundidad"
 					id="profundidad" /></td>
-</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Fragilidad</td>
 				<td width="40%"><input type="text" name="fragilidad"
 					id="fragilidad" /></td>
-</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Cantidad Apilable</td>
 				<td width="40%"><input type="text" name="cantApilable"
 					id="cantApilable" /></td>
-</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Condicion de Viaje</td>
 				<td width="40%"><input type="text" name="condViaje"
 					id="condViaje" /></td>
-	</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Indicaciones Manipulacion</td>
 				<td width="40%"><input type="text"
 					name="indicacionesManipulacion" id="indicacionesManipulacion" /></td>
-	</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Direccion Destino (Coordenadas)</td>
 				<td width="40%"><input type="text" name="direDestino"
 					id="direDestino" /></td>
-	</tr>
-<tr>
+			</tr>
+			<tr>
 				<td width="20%">Volumen/Peso</td>
 				<td width="40%"><input type="text" name="volPeso" id="volPeso" /></td>
-				
+
 			</tr>
 			<!-- 			<tr> -->
 			<!-- 				<div> -->
@@ -96,12 +96,11 @@ String nro=Integer.toString(pb.getIdPedido());
 			<tr></tr>
 			<tr></tr>
 		</table>
-		
-				<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> 
-		
-		
-		<input type="button" name="agregarMercaderia" value="Agregar Mercaderia" onclick="addMercaderia()"/> 
-		
+
+		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> <input
+			type="button" name="agregarMercaderia" value="Agregar Mercaderia"
+			onclick="addMercaderia()" />
+
 	</form>
 
 

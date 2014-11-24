@@ -35,6 +35,9 @@ public class AgregarMercaderia extends HttpServlet {
 		int nro=Integer.parseInt(request.getParameter("nro"));
 
 		String tipoMercaderia=request.getParameterValues("tipo")[0];
+//		String altoS=request.getParameter("alto");
+//		int alto=Integer.parseInt(altoS);
+//		float alto2=alto;
 		float alto=Float.parseFloat(request.getParameter("alto"));
 		float ancho=Float.parseFloat(request.getParameter("ancho"));
 		float profundidad=Float.parseFloat(request.getParameter("profundidad"));
@@ -49,7 +52,8 @@ public class AgregarMercaderia extends HttpServlet {
 
 		String volPeso=request.getParameter("volPeso");
 
-		if(!tipoMercaderia.equals("")&&alto==0&&ancho==0&&profundidad==0&&!fragilidad.equals("")&&!condViaje.equals("")&&!direDestino.equals("")&&!volPeso.equals(""))
+		if(!tipoMercaderia.equals("")&&alto>0&&ancho>0&&profundidad>0&&!fragilidad.equals("")
+				&&!condViaje.equals("")&&!direDestino.equals("")&&!volPeso.equals("")&&cantApilable>=0)
 		{
 			
 			PedidoBean pb=ControladorWeb.getInstancia().getPedido(nro);
@@ -73,14 +77,11 @@ public class AgregarMercaderia extends HttpServlet {
 			mb.setPedido(pb);
 //SIEMPRE PRIMER DEPOSITO? 
 //RANDOM?
-			mb.setDeposito(pb.getSucursal().getDepositos().get(0));
-			
-			
+			mb.setDeposito(pb.getSucursal().getDepositos().get(0));			
 			pb.addMercaderia(mb);
 			
 			request.setAttribute("nuevoPedido", pb);
 			ControladorWeb.getInstancia().actualizarPedido(pb);
-			System.out.println("llamooooooooooooooooooooooooooooooooooooooo");
 			RequestDispatcher dispacher = request.getRequestDispatcher("agregarMercaderia.jsp");
 			dispacher.forward(request, response);
 		}
