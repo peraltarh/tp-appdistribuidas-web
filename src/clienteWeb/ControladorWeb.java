@@ -149,7 +149,7 @@ public class ControladorWeb {
 			e.printStackTrace();
 		}
 		pb.setIdPedido(id);
-		return 0;
+		return id;
 	}
 
 
@@ -174,13 +174,13 @@ public class ControladorWeb {
 		}
 	}
 	
-//	public List<SucursalBean> getSucursales()
-//	{
-//		try {
-//			return controladorRMI.getSucursales();			
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//			return null;
-//		}		
-//	}
+	public List<String> getSucursales()
+	{
+		try {
+			return controladorRMI.getListaNombresSucursales();			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
 }

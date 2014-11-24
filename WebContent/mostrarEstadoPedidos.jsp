@@ -16,6 +16,8 @@
 		}
 		document.getElementById("formulario").submit();
 	}
+	
+	
 </script>
 
 </head>
@@ -35,6 +37,7 @@
 					</option>
 					<% } %>
 				</select> <input name="btnSelPedido" type="button" value="Seleccionar"	onClick="validarForm();">
+			
 			</p>
 		</blockquote>
 	</form>

@@ -5,6 +5,8 @@
 <%@ page import="clienteWeb.ControladorWeb"%>
 <%@ page import="beans.ClienteBean"%>
 <%@ page import="beans.PedidoBean"%>
+<%@ page import="beans.EmpresaDirValidasBean"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,11 +17,11 @@
 </head>
 
 <%
-ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
-
+	ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
+	if(cb instanceof EmpresaBean)
+		cb=(EmpresaBean)cb;
 		String tipoId=cb.getTipoCliente();
 	String nro=cb.getIdentificacion();
-
 %>
 
 <script type="text/javascript">
@@ -43,28 +45,21 @@ ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
 				<td width="40%"><input type="text" name="fechaMax"
 					id="fechaMax" /></td>
 			</tr>
-			<tr>
-				<td width="20%">Direccion Destino</td>
-				<td width="40%"><input type="text" name="dirDestino"
-					id="dirDestino" /></td>
-			</tr>
-			
-<!-- 			<p> -->
-<!-- 				Sucursal: <select name="cbSucursal" id="comboSucursales" size="1"> -->
-<%-- 					<% for (SucursalBean sb : ControladorWeb.getInstancia().getSucursales()) { %> --%>
-<%-- 					<option value="<%=sb.getNombre() %>"> --%>
-<%-- 						<%=sb.getNombre() %> --%>
-<!-- 					</option> -->
-<%-- 					<% } %> --%>
-<!-- 				</select> -->
-<!-- 			</p> -->
-			
-			<tr>
-				<td width="20%">Nombre Sucursal</td>
-				<td width="40%"><input type="text" name="sucursal"
-					id="sucursal" /></td>
-			</tr>
 
+
+
+
+<!-- 			<tr> -->
+<!-- 				<td width="20%">Sucursal Origen</td> -->
+<!-- 				<td width="40%"><input type="text" name="sucursal" -->
+<!-- 					id="sucursal" /></td> -->
+<!-- 			</tr> -->
+
+<!-- 			<tr> -->
+<!-- 				<td width="20%">Sucursal Destino</td> -->
+<!-- 				<td width="40%"><input type="text" name="dirDestino" -->
+<!-- 					id="dirDestino" /></td> -->
+<!-- 			</tr> -->
 
 			<tr>
 				<td width="20%">Horario Entrega Desde (HH:MM)</td>
@@ -86,20 +81,69 @@ ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
 				<td width="40%"><input type="text" name="manifiesto"
 					id="manifiesto" /></td>
 			</tr>
+
+			<!-- 			<tr> -->
+			<!-- 				<td width="20%">Direccion de Retiro (Solo Empresa)</td> -->
+			<!-- 				<td width="40%"><input type="text" -->
+			<!-- 					name="dirDeRetiroSoloEmpresa" id="dirDeRetiroSoloEmpresa" /></td> -->
+
+			<!-- 			</tr> -->
+
 			<tr>
-				<td width="20%">Direccion de Retiro (Solo Empresa)</td>
-				<td width="40%"><input type="text"
-					name="dirDeRetiroSoloEmpresa" id="dirDeRetiroSoloEmpresa" /></td>
+
 
 			</tr>
+
+
 			<tr></tr>
 			<tr></tr>
 			<tr></tr>
 		</table>
-		<input type="hidden" name="tipoId" id="tipoId" value="<%=tipoId%>" /> 
 		
-		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> 
-		<input
+		<blockquote>
+			<p>
+				Sucursal: <select name="cbSucursalOrigen" id="comboSucursalesOrigen" size="1">
+					<% for (String suc: ControladorWeb.getInstancia().getSucursales()) { %>
+					<option value="<%=suc %>">
+						<%=suc%>
+					</option>
+					<% } %>
+				</select>
+			</p>
+		</blockquote>
+		
+			<blockquote>
+			<p>
+				Sucursal: <select name="cbSucursalDestino" id="comboSucursalesOrigen" size="1">
+					<% for (String suc: ControladorWeb.getInstancia().getSucursales()) { %>
+					<option value="<%=suc %>">
+						<%=suc%>
+					</option>
+					<% } %>
+				</select>
+			</p>
+		</blockquote>
+		
+		<blockquote>
+			<p>
+				Direcciones Validas (SOLO EMPRESA): <select
+					name="cbDireccionesValidas" id="comboDireccionesValidas" size="1">
+					<%
+								for (EmpresaDirValidasBean dir : ((EmpresaBean) cb)
+										.getDireccionesValidas()) {
+							%>
+					<option value="<%=dir.getDireccion()%>">
+						<%=dir.getDireccion()%>
+					</option>
+					<%
+								}
+							%>
+				</select> 
+			</p>
+		</blockquote>
+		<input type="hidden" name="tipoId" id="tipoId" value="<%=tipoId%>" />
+
+		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> <input
 			type="button" name="crearPedido" value="Crear Pedido"
 			onclick="validarPedido()"> <input type="reset"
 			name="LimpiarCampos" value="Limpiar Campos" />
