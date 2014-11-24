@@ -80,14 +80,25 @@
     
     <servlet>
     <description></description>
-    <display-name>mostrarEstadoPedidosCliente</display-name>
-    <servlet-name>mostrarEstadoPedidosCliente</servlet-name>
-    <servlet-class>servlet.MostrarEstadoPedidosCliente</servlet-class>
+    <display-name>mostrarPedidosCliente</display-name>
+    <servlet-name>mostrarPedidosCliente</servlet-name>
+    <servlet-class>servlet.MostrarPedidosCliente</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>mostrarEstadoPedidosCliente</servlet-name>
-    <url-pattern>/mostrarEstadoPedidosCliente</url-pattern>
+    <servlet-name>mostrarPedidosCliente</servlet-name>
+    <url-pattern>/mostrarPedidosCliente</url-pattern>
   </servlet-mapping>
   
+  
+      <servlet>
+    <description></description>
+    <display-name>mostrarPedidosCliente2</display-name>
+    <servlet-name>mostrarPedidosCliente2</servlet-name>
+    <servlet-class>servlet.MostrarPedidosCliente2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mostrarPedidosCliente2</servlet-name>
+    <url-pattern>/mostrarPedidosCliente2</url-pattern>
+  </servlet-mapping>
   
 </web-app>

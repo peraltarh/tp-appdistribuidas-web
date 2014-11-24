@@ -31,7 +31,7 @@ int idCliente=cb.getIdCliente();
 
 <body>
 
-	<form name="generarEnvio2" action="generarEnvio2" id="formulario"
+	<form name="mostrarPedidosCliente2" action="mostrarPedidosCliente2" id="formulario"
 		method="POST">
 
 		<blockquote>

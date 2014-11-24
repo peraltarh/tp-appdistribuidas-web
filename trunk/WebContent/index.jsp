@@ -21,7 +21,7 @@
                 <li><a href="GenerarEnvio.jsp">Generar Envio</a></li>
                  <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
                 <li><a href="mostrarEstadoPedidos.jsp">Mostrar Estado Mercaderias por ID Pedido</a></li>
-                <li><a href="mostrarEstadoPedidosCliente.jsp">Mostrar Estado Mercaderias por Cliente</a></li>
+                <li><a href="mostrarPedidosCliente.jsp">Mostrar Pedidos por Cliente</a></li>
             </ul>
         </div>              
     </div>    
