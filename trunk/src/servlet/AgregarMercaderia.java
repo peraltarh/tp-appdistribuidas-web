@@ -59,11 +59,11 @@ public class AgregarMercaderia extends HttpServlet {
 			PedidoBean pb=ControladorWeb.getInstancia().getPedido(nro);
 
 			MercaderiaBean mb=null;
-			if(tipoMercaderia=="porPeso")
+			if(tipoMercaderia.equals("porPeso"))
 			{
 				mb=new MercaderiaPorPesoBean();
 			}
-			else if(tipoMercaderia=="porVolumen")
+			else if(tipoMercaderia.equals("porVolumen"))
 			{
 				mb=new MercaderiaPorVolumenBean();
 			}

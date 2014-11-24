@@ -20,6 +20,12 @@
 	function addMercaderia() {
 		document.getElementById("formulario").submit();
 	}
+	
+	function concluirCarga()
+	{
+		window.location = "http://localhost:8080/TP-AD_Web/index.jsp";
+	}
+	
 </script>
 
 
@@ -99,7 +105,10 @@
 
 		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> <input
 			type="button" name="agregarMercaderia" value="Agregar Mercaderia"
-			onclick="addMercaderia()" />
+			onclick="addMercaderia()" /> 
+			<input type="button"
+			name="concluirCarga" value="Concluir Carga"
+			onclick="concluirCarga()" />
 
 	</form>
 
