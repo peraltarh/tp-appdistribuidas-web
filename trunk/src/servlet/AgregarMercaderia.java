@@ -21,6 +21,7 @@ import beans.MercaderiaPorVolumenBean;
 import beans.PedidoBean;
 import beans.SucursalBean;
 import clienteWeb.ControladorWeb;
+import beans.MovimientoBean;
 
 public class AgregarMercaderia extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -75,9 +76,11 @@ public class AgregarMercaderia extends HttpServlet {
 			mb.setCondDeViaje(condViaje);
 			mb.setCoordenadasDestino(direDestino);
 			mb.setPedido(pb);
-//SIEMPRE PRIMER DEPOSITO? 
-//RANDOM?
-			mb.setDeposito(pb.getSucursal().getDepositos().get(0));			
+			mb.setDeposito(pb.getSucursal().getDepositos().get(0));	
+			
+			
+			MovimientoBean movB = new MovimientoBean(null,null,pb.getSucursal().getNombre(),pb.getSucursal().getNombre(),"Recibido","Recibido",mb);
+			mb.addMovimiento(movB);
 			pb.addMercaderia(mb);
 			
 			request.setAttribute("nuevoPedido", pb);

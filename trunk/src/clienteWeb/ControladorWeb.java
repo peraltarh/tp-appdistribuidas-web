@@ -183,4 +183,14 @@ public class ControladorWeb {
 			return null;
 		}		
 	}
+	
+	public List<PedidoBean> getPedidosCliente(int idCliente){
+		try {
+			return controladorRMI.getPedidosCliente(idCliente);			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }
