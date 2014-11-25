@@ -2,11 +2,8 @@ package clienteWeb;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.util.LinkedList;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
 
 import beans.ClienteBean;
 import beans.MercaderiaBean;
@@ -191,6 +188,17 @@ public class ControladorWeb {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public String validarPedidosPendientesSucursal(String sucursal){
+		try {
+			return controladorRMI.validarPedidosPorVencerDeSucursal(sucursal);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
 	}
 
 }
