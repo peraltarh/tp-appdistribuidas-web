@@ -19,8 +19,15 @@
 <%
 	ClienteBean cb=(ClienteBean)request.getAttribute("clienteValidado");
 	if(cb instanceof EmpresaBean)
+	{	
 		cb=(EmpresaBean)cb;
-		String tipoId=cb.getTipoCliente();
+	}
+	
+	else if(cb instanceof ParticularBean)
+		{
+		cb=(ParticularBean)cb;
+		}
+	String tipoId=cb.getTipoCliente();
 	String nro=cb.getIdentificacion();
 %>
 
@@ -74,48 +81,63 @@
 			<tr></tr>
 			<tr></tr>
 		</table>
-		
+
 		<blockquote>
 			<p>
-				Sucursal: <select name="cbSucursalOrigen" id="comboSucursalesOrigen" size="1">
-					<% for (String suc: ControladorWeb.getInstancia().getSucursales()) { %>
-					<option value="<%=suc %>">
+				Sucursal: <select name="cbSucursalOrigen" id="comboSucursalesOrigen"
+					size="1">
+					<%
+						for (String suc : ControladorWeb.getInstancia().getSucursales()) {
+					%>
+					<option value="<%=suc%>">
 						<%=suc%>
 					</option>
-					<% } %>
+					<%
+						}
+					%>
 				</select>
 			</p>
 		</blockquote>
-		
-			<blockquote>
+
+		<blockquote>
 			<p>
-				Sucursal: <select name="cbSucursalDestino" id="comboSucursalesOrigen" size="1">
-					<% for (String suc: ControladorWeb.getInstancia().getSucursales()) { %>
-					<option value="<%=suc %>">
+				Sucursal: <select name="cbSucursalDestino"
+					id="comboSucursalesOrigen" size="1">
+					<%
+						for (String suc : ControladorWeb.getInstancia().getSucursales()) {
+					%>
+					<option value="<%=suc%>">
 						<%=suc%>
 					</option>
-					<% } %>
+					<%
+						}
+					%>
 				</select>
 			</p>
 		</blockquote>
-		
+
+
+
 		<blockquote>
+			<%if (cb instanceof EmpresaBean){%>
+
 			<p>
 				Direcciones Validas (SOLO EMPRESA): <select
 					name="cbDireccionesValidas" id="comboDireccionesValidas" size="1">
 					<%
-								for (EmpresaDirValidasBean dir : ((EmpresaBean) cb)
+							for (EmpresaDirValidasBean dir : ((EmpresaBean) cb)
 										.getDireccionesValidas()) {
-							%>
+						%>
 					<option value="<%=dir.getDireccion()%>">
 						<%=dir.getDireccion()%>
 					</option>
 					<%
-								}
-							%>
-				</select> 
+							}
+						%>
+				</select>
 			</p>
 		</blockquote>
+		<%} %>
 		<input type="hidden" name="tipoId" id="tipoId" value="<%=tipoId%>" />
 
 		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> <input
