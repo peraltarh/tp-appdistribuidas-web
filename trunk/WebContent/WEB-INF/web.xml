@@ -100,5 +100,15 @@
     <servlet-name>mostrarPedidosCliente2</servlet-name>
     <url-pattern>/mostrarPedidosCliente2</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+  	<description></description>
+  	<display-name>ValidarPedidosPorVencerDeSucursal</display-name>
+  	<servlet-name>ValidarPedidosPorVencerDeSucursal</servlet-name>
+  	<servlet-class>servlet.ValidarPedidosPorVencerDeSucursal</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ValidarPedidosPorVencerDeSucursal</servlet-name>
+  	<url-pattern>/validarPedidosPorVencerDeSucursal</url-pattern>
+  </servlet-mapping>
+
 </web-app>
