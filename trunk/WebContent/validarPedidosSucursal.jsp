@@ -11,10 +11,10 @@
 <script type="text/javascript">
 function validarPedidos(){
 	
-	if(document.getElementById("comboSucursal").value == ""){
-		alert('Debe seleccionar una Sucursal.');
-		return false;
-	}
+// 	if(document.getElementById("comboSucursal").value == ""){
+// 		alert('Debe seleccionar una Sucursal.');
+// 		return false;
+// 	}
 	document.getElementById("formulario").submit();
 	
 }
@@ -25,7 +25,7 @@ function validarPedidos(){
 
 <body>
 
-	<form name="ValidarPedidosSucursal" id="formulario">
+	<form name="validarPedidosSucursal" action="validarPedidosSucursal" id="formulario" method="GET">
 		<blockquote>
 			<p>
 				Sucursal: <select name="cbSucursal" id="comboSucursal"

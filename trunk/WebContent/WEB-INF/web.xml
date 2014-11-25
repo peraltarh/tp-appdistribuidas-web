@@ -102,13 +102,13 @@
   </servlet-mapping>
   <servlet>
   	<description></description>
-  	<display-name>ValidarPedidosPorVencerDeSucursal</display-name>
-  	<servlet-name>ValidarPedidosPorVencerDeSucursal</servlet-name>
-  	<servlet-class>servlet.ValidarPedidosPorVencerDeSucursal</servlet-class>
+  	<display-name>validarPedidosSucursal</display-name>
+  	<servlet-name>validarPedidosSucursal</servlet-name>
+  	<servlet-class>servlet.ValidarPedidosSucursal</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>ValidarPedidosPorVencerDeSucursal</servlet-name>
-  	<url-pattern>/validarPedidosPorVencerDeSucursal</url-pattern>
+  	<servlet-name>validarPedidosSucursal</servlet-name>
+  	<url-pattern>/validarPedidosSucursal</url-pattern>
   </servlet-mapping>
 
 </web-app>

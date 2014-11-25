@@ -22,7 +22,7 @@
                  <li><a href="generarTraslado.jsp">Generar Traslado</a></li>
                 <li><a href="mostrarEstadoPedidos.jsp">Mostrar Estado Mercaderias por ID Pedido</a></li>
                 <li><a href="mostrarPedidosCliente.jsp">Mostrar Pedidos por Cliente</a></li>
-               <li><a href="validarPedidosPorVencerDeSucursal.jsp">Validar pedidos por vencer de una sucursal</a></li>
+               <li><a href="validarPedidosSucursal.jsp">Validar pedidos por vencer de una sucursal</a></li>
             </ul>
         </div>              
     </div>    
