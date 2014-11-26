@@ -35,9 +35,13 @@ public class GenerarEnvio2 extends HttpServlet {
 		String horarioDeEntregaHasta=request.getParameter("horarioDeEntregaHasta")+":00";
 		String condEspeciales=request.getParameter("condEspeciales");
 		String manifiesto=request.getParameter("manifiesto");
-		String dirDeRetiroSoloEmpresa=request.getParameterValues("cbDireccionesValidas")[0];
+		
 		String tipoId=request.getParameter("tipoId");
 		String nroC=request.getParameter("nro");
+		
+		String dirDeRetiroSoloEmpresa=null;
+		if(tipoId.equalsIgnoreCase("CUIT"))
+		{dirDeRetiroSoloEmpresa=request.getParameterValues("cbDireccionesValidas")[0];}
 		ClienteBean cb=ControladorWeb.getInstancia().getCliente(tipoId,Integer.parseInt(nroC));
 		String sucursal=request.getParameterValues("cbSucursalOrigen")[0];
 		if(!sucursal.equals(""))
@@ -57,7 +61,8 @@ public class GenerarEnvio2 extends HttpServlet {
 				pb.setHorarioDeEntregahasta(java.sql.Time.valueOf(horarioDeEntregaHasta));
 				pb.setCondEspeciales(condEspeciales);
 				pb.setManifiesto(manifiesto);
-				pb.setDirDeRetiroSoloEmpresa(dirDeRetiroSoloEmpresa);
+				if(tipoId.equalsIgnoreCase("CUIT"))
+				{pb.setDirDeRetiroSoloEmpresa(dirDeRetiroSoloEmpresa);}
 				request.setAttribute("nuevoPedido", pb);
 				int id=ControladorWeb.getInstancia().altaPedidoBean(pb);
 				pb.setIdPedido(id);

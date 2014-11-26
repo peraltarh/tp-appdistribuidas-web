@@ -55,7 +55,7 @@ int idCliente=cb.getIdCliente();
 	</form>
 
 
-	<a href='mostrarPedidosCliente.jsp'>Volver</a>
+	<a href='index.jsp'>Volver</a>
 
 </body>
 </html>

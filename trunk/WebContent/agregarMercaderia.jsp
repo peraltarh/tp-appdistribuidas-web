@@ -23,6 +23,7 @@
 	
 	function concluirCarga()
 	{
+<%-- 		<%System.out.println(ControladorWeb.getInstancia().cerrarPedido(pb));%> --%>
 		window.location = "http://localhost:8080/TP-AD_Web/index.jsp";
 	}
 	
