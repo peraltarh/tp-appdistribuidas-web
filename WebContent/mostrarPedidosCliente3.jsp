@@ -35,8 +35,9 @@
 			<tr>
 				<th>Numero</th>
 				<th>Id Mercaderia</th>
-				<th>Deposito Actual</th>
+				<th>Sucursal Actual</th>
 				<th>Fecha Maxima Entrega</th>
+				<th>Estado Actual</th>
 			</tr>
 			<%
 				for (int i = 0; i < pb.getMercaderias().size(); i++) {
@@ -44,8 +45,9 @@
 			<tr>
 				<th><%=i + 1%></th>
 				<th><%=pb.getMercaderias().get(i).getIdMercaderia()%></th>
-				<th><%=pb.getMercaderias().get(i).getDeposito().getIdDeposito()%></th>
-				<th><%=pb.getDirDestino()%></th>
+				<th><%=pb.getSucursal().getNombre()%></th>
+				<th><%=pb.getFechaEnregaMaxima()%></th>
+				<th><%=pb.getEstado()%></th>
 			</tr>
 			<%
 				}
@@ -54,7 +56,7 @@
 		</table>
 
 	</div>
-	<a href='mostrarPedidosCliente2.jsp'>Volver</a>
+	<a href='index.jsp'>Volver</a>
 
 </body>
 </html>

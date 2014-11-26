@@ -201,4 +201,14 @@ public class ControladorWeb {
 		
 	}
 
+	public String cerrarPedido(PedidoBean pb)
+	{
+		try {
+			return controladorRMI.cerrarPedido(pb);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

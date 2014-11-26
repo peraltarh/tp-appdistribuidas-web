@@ -57,7 +57,7 @@ public class MostrarEstadoPedidos extends HttpServlet{
 		String numeroPedido = request.getParameterValues("cbPedidos")[0];
 		PedidoBean pB=ControladorWeb.getInstancia().getPedido(Integer.parseInt(numeroPedido));
 		request.setAttribute("nuevoPedido", pB);
-		RequestDispatcher dispacher = request.getRequestDispatcher("mostrarEstadoPedidos2.jsp");
+		RequestDispatcher dispacher = request.getRequestDispatcher("mostrarPedidosCliente3.jsp");
 
 		dispacher.forward(request, response);
 	}
