@@ -29,7 +29,7 @@ int idCliente=cb.getIdCliente();
 
 
 
-<body>
+<body BACKGROUND="fondo.jpg">
 
 	<form name="mostrarPedidosCliente2" action="mostrarPedidosCliente2" id="formulario"
 		method="POST">

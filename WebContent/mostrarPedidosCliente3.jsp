@@ -24,7 +24,7 @@
 </script>
 
 </head>
-<body>
+<body BACKGROUND="fondo.jpg">
 
 	<div>
 		<h2>Pedido Seleccionado : <%=pb.getIdPedido() %></h2>

@@ -11,8 +11,11 @@
 
 
 
-<body>
-
+<body BACKGROUND="fondo.jpg">
+	<div>
+		<h2>Respuesta Velidar Pedidos Sucursal</h2>
+	</div>
+	<br>
 	<form name="respuestaValidarPedidosSucursal" id="formulario">
 
 				<%String result = (String)request.getAttribute("respuesta");%>

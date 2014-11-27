@@ -16,7 +16,7 @@
 
 
 
-<body>
+<body BACKGROUND="fondo.jpg">
 
 	<form name="GenerarEnvio" action="GenerarEnvio" id="formulario"
 		method="GET">

@@ -16,7 +16,7 @@
 
 
 
-<body>
+<body  BACKGROUND="fondo.jpg">
 
 	<form name="mostrarPedidosCliente" action="mostrarPedidosCliente" id="formulario"
 		method="GET">
