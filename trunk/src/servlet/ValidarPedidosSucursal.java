@@ -24,9 +24,11 @@ public class ValidarPedidosSucursal extends HttpServlet{
 		
 		if(!nombreSucursal.equals("")){
 			
-			ControladorWeb.getInstancia().validarPedidosPendientesSucursal(nombreSucursal);
-			RequestDispatcher dispacher = request.getRequestDispatcher("validarPedidosPorVencerDeSucursal.jsp");
-
+			String respuesta = ControladorWeb.getInstancia().validarPedidosPendientesSucursal(nombreSucursal);
+			if(respuesta == null)respuesta = "No existen pedidos pendientes para la sucursal seleccionada";
+			
+			RequestDispatcher dispacher = request.getRequestDispatcher("respuestaValidarPedidosSucursal.jsp");
+			request.setAttribute("respuesta", respuesta);
 			dispacher.forward(request, response);
 
 		}
