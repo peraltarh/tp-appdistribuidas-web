@@ -11,10 +11,10 @@
 <script type="text/javascript">
 function validarPedidos(){
 	
-// 	if(document.getElementById("comboSucursal").value == ""){
-// 		alert('Debe seleccionar una Sucursal.');
-// 		return false;
-// 	}
+	if(document.getElementById("comboSucursal").value == ""){
+		alert('Debe seleccionar una Sucursal.');
+		return false;
+	}
 	document.getElementById("formulario").submit();
 	
 }
