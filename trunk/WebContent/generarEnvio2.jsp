@@ -39,7 +39,7 @@
 
 
 
-<body>
+<body BACKGROUND="fondo.jpg">
 
 	<form name="generarEnvio2" action="generarEnvio2" id="formulario"
 		method="POST">

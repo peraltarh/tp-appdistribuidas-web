@@ -21,7 +21,7 @@
 </script>
 
 </head>
-<body>
+<body  BACKGROUND="fondo.jpg">
 
 	<div>
 		<h2>Seleccionar Pedido</h2>

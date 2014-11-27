@@ -19,7 +19,7 @@
 </script>
 
 </head>
-<body>
+<body BACKGROUND="fondo.jpg">
 
 	<div>
 		<h2>Generar Traslado</h2>

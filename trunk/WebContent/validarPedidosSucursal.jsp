@@ -23,8 +23,11 @@ function validarPedidos(){
 
 
 
-<body>
-
+<body BACKGROUND="fondo.jpg">
+	<div>
+		<h2>Velidar Pedidos Sucursal</h2>
+	</div>
+	<br>
 	<form name="validarPedidosSucursal" action="validarPedidosSucursal" id="formulario" method="GET">
 		<blockquote>
 			<p>
