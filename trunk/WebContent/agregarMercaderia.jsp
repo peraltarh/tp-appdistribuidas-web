@@ -106,20 +106,13 @@
 		</table>
 
 		<input TYPE=checkbox name=pedidoRechazado VALUE=pedidoRechazado> El
-		Pedido contiene Armas ni Quimicos <BR> <input type="hidden"
+		Pedido no contiene Armas ni Quimicos explosivos <BR> <input type="hidden"
 			name="nro" id="nro" value="<%=nro%>" /> <input type="button"
 			name="agregarMercaderia" value="Agregar Mercaderia"
 			onclick="addMercaderia()" />
 
 	</form>
 
-	<form name="concluirCarga" action="concluirCarga"
-		id="formularioConcluirCarga" method="GET">
-
-		<input type="button" name="concluirCarga" value="Concluir Carga"
-			onclick="concluirCarga()" />
-
-	</form>
 	<a href='index.jsp'>Finalizar</a>
 </body>
 </html>
