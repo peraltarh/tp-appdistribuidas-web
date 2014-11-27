@@ -20,13 +20,11 @@
 	function addMercaderia() {
 		document.getElementById("formulario").submit();
 	}
-	
-	function concluirCarga()
-	{
-<%-- 		<%System.out.println(ControladorWeb.getInstancia().cerrarPedido(pb));%> --%>
-		window.location = "http://localhost:8080/TP-AD_Web/index.jsp";
-	}
-	
+
+// 	function concluirCarga() {
+<%-- <%ControladorWeb.getInstancia().cerrarPedido(pb);%> --%>
+// 	window.location = "http://localhost:8080/TP-AD_Web/index.jsp";
+// 	}
 </script>
 
 
@@ -39,6 +37,9 @@
 	</div>
 	<form name="agregarMercaderia" action="agregarMercaderia"
 		id="formulario" method="GET">
+
+		 <input TYPE=checkbox name=ultimaMercaderia VALUE=ultimaMercaderia> Es Ultima Mercaderia
+		<BR>
 
 		<table width="75%">
 			<tr>
@@ -104,17 +105,21 @@
 			<tr></tr>
 		</table>
 
-		<input type="hidden" name="nro" id="nro" value="<%=nro%>" /> <input
-			type="button" name="agregarMercaderia" value="Agregar Mercaderia"
-			onclick="addMercaderia()" /> 
-			<input type="button"
-			name="concluirCarga" value="Concluir Carga"
-			onclick="concluirCarga()" />
+		<input TYPE=checkbox name=pedidoRechazado VALUE=pedidoRechazado> El
+		Pedido contiene Armas ni Quimicos <BR> <input type="hidden"
+			name="nro" id="nro" value="<%=nro%>" /> <input type="button"
+			name="agregarMercaderia" value="Agregar Mercaderia"
+			onclick="addMercaderia()" />
 
 	</form>
 
+	<form name="concluirCarga" action="concluirCarga"
+		id="formularioConcluirCarga" method="GET">
 
+		<input type="button" name="concluirCarga" value="Concluir Carga"
+			onclick="concluirCarga()" />
+
+	</form>
 	<a href='index.jsp'>Finalizar</a>
-
 </body>
 </html>
