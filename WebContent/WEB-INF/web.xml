@@ -11,13 +11,13 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>GenerarTraslado</display-name>
-    <servlet-name>GenerarTraslado</servlet-name>
+    <display-name>generarTraslado</display-name>
+    <servlet-name>generarTraslado</servlet-name>
     <servlet-class>servlet.GenerarTraslado</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GenerarTraslado</servlet-name>
-    <url-pattern>/GenerarTraslado</url-pattern>
+    <servlet-name>generarTraslado</servlet-name>
+    <url-pattern>/generarTraslado</url-pattern>
   </servlet-mapping>
   
   

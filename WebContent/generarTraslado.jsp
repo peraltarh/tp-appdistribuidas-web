@@ -25,11 +25,11 @@
 		<h2>Generar Traslado</h2>
 	</div>
 	<form name="frmGenerarTraslado" id="formulario" method="GET"
-		action="GenerarTraslado">
+		action="generarTraslado">
 		<blockquote>
 			<p>
 				Pedido: <select name="cbPedidos" id="comboPedidos" size="1">
-					<% for (PedidoBean p : ControladorWeb.getInstancia().getPedidosPorEstado ("En Proceso")) { %>
+					<% for (PedidoBean p : ControladorWeb.getInstancia().getPedidosPorEstado ("SIN_PROCESAR")) { %>
 					<option value="<%=p.getIdPedido() %>">
 						<%=p.getIdPedido() %>
 					</option>

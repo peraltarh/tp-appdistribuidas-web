@@ -48,9 +48,6 @@ public class GenerarTraslado extends HttpServlet{
 		//			out.println(HTML);
 	}
 
-	//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	//		doGet(request, response);
-	//	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
