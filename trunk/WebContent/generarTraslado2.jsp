@@ -32,7 +32,7 @@
 
 	<div>
 		<form name="frmGenerarTraslado" id="formulario" method="GET"
-			action="GenerarTraslado">
+			action="generarTraslado2">
 			<blockquote>
 				<p>
 					Mercaderia: <select name="cbMercaderia" id="comboMercaderias"
@@ -42,7 +42,7 @@
 						%>
 						<option value="<%=m.getIdMercaderia()%>">
 							<%=m.getIdMercaderia()%>
-						</option>
+						</option>					
 						<%
 							}
 						%>
@@ -76,6 +76,11 @@
 
 <input name="btnSelMercaderia" type="button"
 						value="Seleccionar Mercaderia" onClick="validarForm();">
+						
+								<input type="hidden" name="sucFinal" id="sucFinal"
+			value="<%=pb.getDirDestino()%>" /> <input type="hidden"
+			name="estadoAct" id="estadoAct" value="<%=pb.getEstado()%>" />
+			<input type="hidden" name="idPedido" id="idPedido" value="<%=pb.getIdPedido()%>" />
 		</form>
 	</div>
 	<br>
@@ -104,9 +109,11 @@
 			%>
 
 		</table>
-		<input type="hidden" name="sucFinal" id="sucFinal"
-			value="<%=pb.getDirDestino()%>" /> <input type="hidden"
-			name="estadoAct" id="estadoAct" value="<%=pb.getEstado()%>" />
+
+
+			
+			
+			
 	</div>
 	<br>
 	<br>

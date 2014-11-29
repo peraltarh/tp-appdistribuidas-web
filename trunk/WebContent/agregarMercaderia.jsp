@@ -18,7 +18,13 @@
 
 <script type="text/javascript">
 	function addMercaderia() {
-		document.getElementById("formulario").submit();
+		if(document.formulario.pedidoValido.checked==true)
+			{
+		alert(document.getElementById("formulario").submit());
+	}
+		else{
+			alert("Su pedido fue rechazado por no cumplir con las politicas de envio");
+		}
 	}
 
 // 	function concluirCarga() {
@@ -38,8 +44,8 @@
 	<form name="agregarMercaderia" action="agregarMercaderia"
 		id="formulario" method="GET">
 
-		 <input TYPE=checkbox name=ultimaMercaderia VALUE=ultimaMercaderia> Es Ultima Mercaderia
-		<BR>
+		<input TYPE=checkbox name=ultimaMercaderia VALUE=ultimaMercaderia>
+		Es Ultima Mercaderia <BR>
 
 		<table width="75%">
 			<tr>
@@ -105,10 +111,10 @@
 			<tr></tr>
 		</table>
 
-		<input TYPE=checkbox name=pedidoRechazado VALUE=pedidoRechazado> El
-		Pedido no contiene Armas ni Quimicos explosivos <BR> <input type="hidden"
-			name="nro" id="nro" value="<%=nro%>" /> <input type="button"
-			name="agregarMercaderia" value="Agregar Mercaderia"
+		<input TYPE=checkbox name=pedidoValido id=pedidoValido VALUE=pedidoValido> El
+		Pedido no contiene Armas ni Quimicos explosivos <BR> <input
+			type="hidden" name="nro" id="nro" value="<%=nro%>" /> <input
+			type="button" name="agregarMercaderia" value="Agregar Mercaderia"
 			onclick="addMercaderia()" />
 
 	</form>

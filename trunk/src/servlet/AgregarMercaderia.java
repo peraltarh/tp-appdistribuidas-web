@@ -34,79 +34,73 @@ public class AgregarMercaderia extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 
-		String pedidoRechazado=request.getParameter("pedidoRechazado");
-		if(pedidoRechazado!=null)
+		int nro=Integer.parseInt(request.getParameter("nro"));
+		String ultimaMercaderia=request.getParameter("ultimaMercaderia");
+
+		String tipoMercaderia=request.getParameterValues("tipo")[0];
+		float alto=Float.parseFloat(request.getParameter("alto"));
+		float ancho=Float.parseFloat(request.getParameter("ancho"));
+		float profundidad=Float.parseFloat(request.getParameter("profundidad"));
+		String fragilidad=request.getParameter("fragilidad");
+		int cantApilable=Integer.parseInt(request.getParameter("cantApilable"));
+		boolean apilable=true;
+		if(cantApilable==0)
+			apilable=false;
+		String condViaje=request.getParameter("condViaje");
+		String indicacionesManipulacion=request.getParameter("indicacionesManipulacion");
+		String direDestino=request.getParameter("direDestino");
+
+		String volPeso=request.getParameter("volPeso");
+
+		if(!tipoMercaderia.equals("")&&alto>0&&ancho>0&&profundidad>0&&!fragilidad.equals("")
+				&&!condViaje.equals("")&&!direDestino.equals("")&&!volPeso.equals("")&&cantApilable>=0)
 		{
-			System.out.println("Su pedido fue rechazado por no cumplir con las politicas de envio");
-		}
-		else{
-			int nro=Integer.parseInt(request.getParameter("nro"));
-			String ultimaMercaderia=request.getParameter("ultimaMercaderia");
 
-			String tipoMercaderia=request.getParameterValues("tipo")[0];
-			float alto=Float.parseFloat(request.getParameter("alto"));
-			float ancho=Float.parseFloat(request.getParameter("ancho"));
-			float profundidad=Float.parseFloat(request.getParameter("profundidad"));
-			String fragilidad=request.getParameter("fragilidad");
-			int cantApilable=Integer.parseInt(request.getParameter("cantApilable"));
-			boolean apilable=true;
-			if(cantApilable==0)
-				apilable=false;
-			String condViaje=request.getParameter("condViaje");
-			String indicacionesManipulacion=request.getParameter("indicacionesManipulacion");
-			String direDestino=request.getParameter("direDestino");
+			PedidoBean pb=ControladorWeb.getInstancia().getPedido(nro);
 
-			String volPeso=request.getParameter("volPeso");
+			MercaderiaBean mb=null;
+			if(tipoMercaderia.equals("porPeso"))
+			{
+				mb=new MercaderiaPorPesoBean();
+			}
+			else if(tipoMercaderia.equals("porVolumen"))
+			{
+				mb=new MercaderiaPorVolumenBean();
+			}
 
-			if(!tipoMercaderia.equals("")&&alto>0&&ancho>0&&profundidad>0&&!fragilidad.equals("")
-					&&!condViaje.equals("")&&!direDestino.equals("")&&!volPeso.equals("")&&cantApilable>=0)
+			mb.setAlto(alto);
+			mb.setAncho(ancho);
+			mb.setApilable(apilable);
+			mb.setCantApilable(cantApilable);
+			mb.setCondDeViaje(condViaje);
+			mb.setCoordenadasDestino(direDestino);
+			mb.setPedido(pb);
+			mb.setDeposito(pb.getSucursal().getDepositos().get(0));	
+			mb.setFragilidad(fragilidad);
+			mb.setIndicacionesManpulacion(indicacionesManipulacion);
+			MovimientoBean movB = new MovimientoBean(null,null,pb.getSucursal().getNombre(),pb.getSucursal().getNombre(),"Recibido","Recibido",mb);
+			mb.addMovimiento(movB);
+			pb.addMercaderia(mb);
+
+
+			request.setAttribute("nuevoPedido", pb);
+
+
+			if(ultimaMercaderia!=null)
 			{
 
-				PedidoBean pb=ControladorWeb.getInstancia().getPedido(nro);
 
-				MercaderiaBean mb=null;
-				if(tipoMercaderia.equals("porPeso"))
-				{
-					mb=new MercaderiaPorPesoBean();
-				}
-				else if(tipoMercaderia.equals("porVolumen"))
-				{
-					mb=new MercaderiaPorVolumenBean();
-				}
-
-				mb.setAlto(alto);
-				mb.setAncho(ancho);
-				mb.setApilable(apilable);
-				mb.setCantApilable(cantApilable);
-				mb.setCondDeViaje(condViaje);
-				mb.setCoordenadasDestino(direDestino);
-				mb.setPedido(pb);
-				mb.setDeposito(pb.getSucursal().getDepositos().get(0));	
-				mb.setFragilidad(fragilidad);
-				mb.setIndicacionesManpulacion(indicacionesManipulacion);
-				MovimientoBean movB = new MovimientoBean(null,null,pb.getSucursal().getNombre(),pb.getSucursal().getNombre(),"Recibido","Recibido",mb);
-				mb.addMovimiento(movB);
-				pb.addMercaderia(mb);
-				
-				
-				request.setAttribute("nuevoPedido", pb);
-				
-				
-				if(ultimaMercaderia!=null)
-				{
-					
-					
-					RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");					
-					System.out.println(ControladorWeb.getInstancia().cerrarPedido(pb));
-					dispacher.forward(request, response);
-				}
-				else{
-					ControladorWeb.getInstancia().actualizarPedido(pb);
-					RequestDispatcher dispacher = request.getRequestDispatcher("agregarMercaderia.jsp");
-					dispacher.forward(request, response);
-				}
-
+				RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");					
+				String s=ControladorWeb.getInstancia().cerrarPedido(pb);
+				System.out.println(s);
+				dispacher.forward(request, response);
 			}
+			else{
+				ControladorWeb.getInstancia().actualizarPedido(pb);
+				RequestDispatcher dispacher = request.getRequestDispatcher("agregarMercaderia.jsp");
+				dispacher.forward(request, response);
+			}
+
 		}
 	}
 

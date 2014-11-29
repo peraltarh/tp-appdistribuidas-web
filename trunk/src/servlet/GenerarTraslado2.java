@@ -23,10 +23,10 @@ public class GenerarTraslado2 extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
-	
+
 	}
 
-	
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -34,17 +34,45 @@ public class GenerarTraslado2 extends HttpServlet{
 		String sucAct=request.getParameterValues("cbSucursalActual")[0];
 		String estado=request.getParameterValues("estado")[0];
 		String sucFinal=request.getParameter("sucFinal");
-		MercaderiaBean mB=ControladorWeb.getInstancia().getMercaderia(Integer.parseInt(numeroMercaderia));
+		String idPedido=request.getParameter("idPedido");
+		PedidoBean pB=ControladorWeb.getInstancia().getPedido(Integer.parseInt(idPedido));
+		//		MercaderiaBean mB=ControladorWeb.getInstancia().getMercaderia(Integer.parseInt(numeroMercaderia));
 		String estadoPedido=request.getParameter("estadoAct");
 		if(sucAct.equals(sucFinal))
 			estadoPedido="Entregado";
+
+		MercaderiaBean mB=null;
+
+		for (MercaderiaBean m : pB.getMercaderias()) {
+			if(m.getIdMercaderia()==Integer.parseInt(numeroMercaderia))
+			{
+				mB=m;
+				break;
+
+			}
+		}
+
 		MovimientoBean movBean=new MovimientoBean(null,null,null,sucAct,estado,estadoPedido,mB);
 		mB.addMovimiento(movBean);
-		request.setAttribute("mercaderiaSeleccionada", mB);
-		RequestDispatcher dispacher = request.getRequestDispatcher("generarTraslado3.jsp");
-
+		
+		for (MercaderiaBean m : pB.getMercaderias()) {
+			if(m.getIdMercaderia()==Integer.parseInt(numeroMercaderia))
+			{
+				m=mB;
+				break;
+			}
+		}
+		
+		RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");					
+		ControladorWeb.getInstancia().actualizarPedido(pB);
 		dispacher.forward(request, response);
+		
+		
+//		request.setAttribute("mercaderiaSeleccionada", mB);
+//		RequestDispatcher dispacher = request.getRequestDispatcher("generarTraslado3.jsp");
+
+//		dispacher.forward(request, response);
 	}
 
-	}
+}
 
