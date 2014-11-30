@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 
+
 import beans.ClienteBean;
 import beans.MercaderiaBean;
 import beans.PedidoBean;
@@ -210,5 +211,20 @@ public class ControladorWeb {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+
+	public ClienteBean altaCliente(String direccion, String telefono,
+			String nombre, String apellido, String numero, String tipoId) {
+		if(tipoId.equals("DNI"))
+		{
+			try {
+				return controladorRMI.altaParticular(direccion, telefono, nombre, apellido, numero);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 }

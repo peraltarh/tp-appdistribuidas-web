@@ -23,6 +23,8 @@
                 <li><a href="mostrarEstadoPedidos.jsp">Mostrar Estado Mercaderias por ID Pedido</a></li>
                 <li><a href="mostrarPedidosCliente.jsp">Mostrar Pedidos por Cliente</a></li>
                <li><a href="validarPedidosSucursal.jsp">Validar pedidos por vencer de una sucursal</a></li>
+				<li><a href="altaCliente.jsp">Alta Cliente</a></li>
+               
             </ul>
         </div>              
     </div>    

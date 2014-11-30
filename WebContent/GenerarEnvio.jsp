@@ -36,8 +36,12 @@
 		<input type="button" name="validarUsuario" value="Validar Usuario"
 			onclick="validarUser();"> <input type="reset"
 			name="LimpiarCampos" value="Limpiar Campos" />
+			
+			
 	</form>
-
+	<BR>
+<a href='altaCliente.jsp'>Alta Cliente</a>
+<BR>
 	<a href='index.jsp'>Volver</a>
 
 </body>
