@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.GregorianCalendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,8 +53,14 @@ public class GenerarTraslado2 extends HttpServlet{
 
 			}
 		}
-
-		MovimientoBean movBean=new MovimientoBean(null,null,null,sucAct,estado,estadoPedido,mB);
+		
+		java.util.Date date=new java.util.Date();
+		@SuppressWarnings("deprecation")
+		String fechaAct=date.getYear()+1900+"-"+1+date.getMonth()+"-"+date.getDay();
+		Date fecha=Date.valueOf("2014-12-01");
+//		String origen=mB.getDeposito().getSuc().getNombre();
+		String origen="Quilmes";
+		MovimientoBean movBean=new MovimientoBean(fecha,fecha,origen,sucAct,estado,estadoPedido,mB);
 		mB.addMovimiento(movBean);
 		
 		for (MercaderiaBean m : pB.getMercaderias()) {

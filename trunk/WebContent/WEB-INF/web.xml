@@ -100,6 +100,8 @@
     <servlet-name>mostrarPedidosCliente2</servlet-name>
     <url-pattern>/mostrarPedidosCliente2</url-pattern>
   </servlet-mapping>
+  
+  
   <servlet>
   	<description></description>
   	<display-name>validarPedidosSucursal</display-name>
@@ -110,5 +112,16 @@
   	<servlet-name>validarPedidosSucursal</servlet-name>
   	<url-pattern>/validarPedidosSucursal</url-pattern>
   </servlet-mapping>
-
+  
+      <servlet>
+    <description></description>
+    <display-name>altaCliente</display-name>
+    <servlet-name>altaCliente</servlet-name>
+    <servlet-class>servlet.AltaCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>altaCliente</servlet-name>
+    <url-pattern>/altaCliente</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
