@@ -43,6 +43,11 @@
 
 	<form name="generarEnvio2" action="generarEnvio2" id="formulario"
 		method="POST">
+		
+	<div>
+		<h2>Alta Pedido - Creacion Pedido</h2>
+	</div>
+	<br>
 
 		<table width="75%">
 			<!-- 		style="display: none" -->
@@ -84,7 +89,7 @@
 
 		<blockquote>
 			<p>
-				Sucursal: <select name="cbSucursalOrigen" id="comboSucursalesOrigen"
+				Sucursal origen: <select name="cbSucursalOrigen" id="comboSucursalesOrigen"
 					size="1">
 					<%
 						for (String suc : ControladorWeb.getInstancia().getSucursales()) {
@@ -101,7 +106,7 @@
 
 		<blockquote>
 			<p>
-				Sucursal: <select name="cbSucursalDestino"
+				Sucursal destino: <select name="cbSucursalDestino"
 					id="comboSucursalesOrigen" size="1">
 					<%
 						for (String suc : ControladorWeb.getInstancia().getSucursales()) {

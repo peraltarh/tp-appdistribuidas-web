@@ -20,6 +20,11 @@
 
 	<form name="GenerarEnvio" action="GenerarEnvio" id="formulario"
 		method="GET">
+		
+	<div>
+		<h2>Alta Pedido - Seleccion Cliente</h2>
+	</div>
+	<br>
 		<table width="75%">
 			<!-- 		style="display: none" -->
 			<tr>
