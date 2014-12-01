@@ -20,7 +20,7 @@
 	function addMercaderia() {
 		if(document.formulario.pedidoValido.checked==true)
 			{
-		alert(document.getElementById("formulario").submit());
+		document.getElementById("formulario").submit();
 	}
 		else{
 			alert("Su pedido fue rechazado por no cumplir con las politicas de envio");
@@ -36,6 +36,10 @@
 
 
 <body BACKGROUND="fondo.jpg">
+	
+	<div>
+		<h2>Alta Pedido - Agregar Mercaderias</h2>
+	</div>
 	<div>
 		<h2>
 			Pedido Seleccionado:
@@ -90,7 +94,7 @@
 					name="indicacionesManipulacion" id="indicacionesManipulacion" /></td>
 			</tr>
 			<tr>
-				<td width="20%">Direccion Destino (Coordenadas)</td>
+				<td width="20%">Direccion Destino</td>
 				<td width="40%"><input type="text" name="direDestino"
 					id="direDestino" /></td>
 			</tr>
