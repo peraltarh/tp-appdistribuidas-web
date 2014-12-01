@@ -92,17 +92,24 @@
 				<th>Numero</th>
 				<th>Id Mercaderia</th>
 				<th>Deposito Actual</th>
-				<th>Fecha Maxima Entrega</th>
+				<th>Direccion Destino</th>
+				<th>Sucursal Actual</th>
 			</tr>
 			<%
 				for (int i = 0; i < pb.getMercaderias().size(); i++) {
+					String lugar = null;
+					if(!pb.getMercaderias().get(i).getMovimientos().isEmpty())
+					lugar = pb.getMercaderias().get(i).getMovimientos().get(pb.getMercaderias().get(i).getMovimientos().size()-1).getDestino();
+					if(lugar==null)lugar="EN SUCURSAL ORIGEN";
+					
 			%>
 			<tr>
 				<th><%=i + 1%></th>
 				<th><%=pb.getMercaderias().get(i).getIdMercaderia()%></th>
 				<th><%=pb.getMercaderias().get(i).getDeposito()
-						.getIdDeposito()%></th>
-				<th><%=pb.getDirDestino()%></th>
+						.getIdDeposito()%> </th>
+				<th><%=pb.getDirDestino()%> </th>
+				<th><%=lugar%> </th>
 			</tr>
 			<%
 				}
