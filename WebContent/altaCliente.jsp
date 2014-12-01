@@ -23,6 +23,10 @@
 
 <body BACKGROUND="fondo.jpg">
 
+	<div>
+		<h2>Alta Cliente</h2>
+	</div>
+
 	<form name="altaCliente" action="altaCliente" id="formulario"
 		method="POST">
 

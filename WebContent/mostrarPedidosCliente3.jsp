@@ -25,7 +25,9 @@
 
 </head>
 <body BACKGROUND="fondo.jpg">
-
+	<div>
+		<h2>Mostrar Pedidos</h2>
+	</div>
 	<div>
 		<h2>Pedido Seleccionado : <%=pb.getIdPedido() %></h2>
 	</div>
