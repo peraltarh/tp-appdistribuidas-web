@@ -207,7 +207,7 @@ public class ControladorWeb {
 		try {
 			return controladorRMI.cerrarPedido(pb);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			return null;
 		}
@@ -221,7 +221,7 @@ public class ControladorWeb {
 			try {
 				return controladorRMI.altaParticular(direccion, telefono, nombre, apellido, numero);
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
