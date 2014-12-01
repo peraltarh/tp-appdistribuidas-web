@@ -52,7 +52,7 @@
 
 			<blockquote>
 				<p>
-					Sucursal Actual: <select name="cbSucursalActual"
+					Sucursal de Arrivo: <select name="cbSucursalActual"
 						id="comboSucursalesActual" size="1">
 						<%
 							for (String suc : ControladorWeb.getInstancia().getSucursales()) {
@@ -67,7 +67,7 @@
 				</p>
 			</blockquote>
 
-		Condicion Arrivo: <select size="1" name="estado" id="estado">
+		Condicion de Arrivo: <select size="1" name="estado" id="estado">
 				<option value="0">Elegir Estado...</option>
 				<option value="OK">OK</option>
 				<option value="GOLPEADO">GOLPEADO</option>

@@ -90,7 +90,8 @@ public class AgregarMercaderia extends HttpServlet {
 			{
 
 
-				//RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");					
+				//RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");	
+				ControladorWeb.getInstancia().actualizarPedido(pb);
 				String respuesta=ControladorWeb.getInstancia().cerrarPedido(pb);
 				if(respuesta == null)respuesta = "No se recibio infomacion del pedido";
 				RequestDispatcher dispacher = request.getRequestDispatcher("respuestaValidarPedidosSucursal.jsp");
