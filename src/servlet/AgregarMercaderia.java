@@ -62,10 +62,13 @@ public class AgregarMercaderia extends HttpServlet {
 			if(tipoMercaderia.equals("porPeso"))
 			{
 				mb=new MercaderiaPorPesoBean();
+				((MercaderiaPorPesoBean)mb).setPeso(Float.valueOf(volPeso));
+			
 			}
 			else if(tipoMercaderia.equals("porVolumen"))
 			{
 				mb=new MercaderiaPorVolumenBean();
+				((MercaderiaPorVolumenBean)mb).setVolumen(Float.valueOf(volPeso));
 			}
 
 			mb.setAlto(alto);
